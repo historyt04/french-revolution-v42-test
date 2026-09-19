@@ -1,0 +1,122 @@
+[
+  {
+    "eventId": "UK-01",
+    "title": "청교도와 젠트리의 의회 진출",
+    "canonicalPath": "content/uk-revolution/images/UK-01.png",
+    "originalFilename": "UK-01-청교도와 젠트리의 의회 진출.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2299700,
+    "sha256": "f931729ab11d0f58569598852148315b4d0adcb2deff1cd0f958acca21d3e185"
+  },
+  {
+    "eventId": "UK-02",
+    "title": "제임스 1세의 왕권신수설 주장",
+    "canonicalPath": "content/uk-revolution/images/UK-02.png",
+    "originalFilename": "UK-02-제임스 1세의 왕권신수설 주장.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2433111,
+    "sha256": "418d8359805a3ec025d42a3765f2a0ded0a2cdf57b6fe1fee50412c5db64a510"
+  },
+  {
+    "eventId": "UK-03",
+    "title": "권리청원 승인",
+    "canonicalPath": "content/uk-revolution/images/UK-03.png",
+    "originalFilename": "UK-03-권리청원 승인.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2681733,
+    "sha256": "093da6748f3d1d723e86e10cdaced3137313264bb8b33ba4b32b2a466d06a292"
+  },
+  {
+    "eventId": "UK-04",
+    "title": "찰스 1세의 의회 해산",
+    "canonicalPath": "content/uk-revolution/images/UK-04.png",
+    "originalFilename": "UK-04-찰스 1세의 의회 해산.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2314057,
+    "sha256": "217a2491d02e1d0b8a44c156759e0999c3bc61e732d8be8830eaa70bdf40fd46"
+  },
+  {
+    "eventId": "UK-05",
+    "title": "찰스 1세의 의회 재소집",
+    "canonicalPath": "content/uk-revolution/images/UK-05.png",
+    "originalFilename": "UK-05-찰스 1세의 의회 재소집.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2366928,
+    "sha256": "ec5575566f7a35668ca70bc98c53cfc523612e2122943c4eca89084de94aafe0"
+  },
+  {
+    "eventId": "UK-06",
+    "title": "청교도 혁명과 내전",
+    "canonicalPath": "content/uk-revolution/images/UK-06.png",
+    "originalFilename": "UK-06-청교도 혁명과 내전.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2498612,
+    "sha256": "afcd3c3d02f874db127e46e7109f7ce44d07564c64c558680215e97b7847829f"
+  },
+  {
+    "eventId": "UK-07",
+    "title": "의회파의 승리",
+    "canonicalPath": "content/uk-revolution/images/UK-07.png",
+    "originalFilename": "UK-07-의회파의 승리.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2681443,
+    "sha256": "fc146537dfea9f1431e2ec0381fda185a7c475777c612a4a2f4ba7b75a2f1e54"
+  },
+  {
+    "eventId": "UK-08",
+    "title": "찰스 1세 처형과 공화정 수립",
+    "canonicalPath": "content/uk-revolution/images/UK-08.png",
+    "originalFilename": "UK-08-찰스 1세 처형과 공화정 수립.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2220293,
+    "sha256": "27987a671a10521ccd347e00480c2dcd7b1b38a6c6bbb7f017fb26d9ebe103f1"
+  },
+  {
+    "eventId": "UK-09",
+    "title": "크롬웰의 호국경 통치",
+    "canonicalPath": "content/uk-revolution/images/UK-09.png",
+    "originalFilename": "UK-09-크롬웰의 호국경 통치.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2192055,
+    "sha256": "dd99e92d6a7432c6a2cf3e6bbe575cdce84b9bdfcb30d8f7459b3fe6e623aac6"
+  },
+  {
+    "eventId": "UK-10",
+    "title": "왕정복고",
+    "canonicalPath": "content/uk-revolution/images/UK-10.png",
+    "originalFilename": "UK-10-왕정복고.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 3054958,
+    "sha256": "c2b1ec59f9e71f009e39fb4be799dbb00ce588ac46968b6c6c0eba1d6fe74a35"
+  },
+  {
+    "eventId": "UK-11",
+    "title": "명예혁명",
+    "canonicalPath": "content/uk-revolution/images/UK-11.png",
+    "originalFilename": "UK-11-명예혁명.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2574500,
+    "sha256": "e0a1c3f8014f4c019e6e4c2561974136c7b14b28ee57194bc4cdb20189e7132a"
+  },
+  {
+    "eventId": "UK-12",
+    "title": "권리장전 승인과 입헌군주제 확립",
+    "canonicalPath": "content/uk-revolution/images/UK-12.png",
+    "originalFilename": "UK-12-권리장전 승인과 입헌군주제 확립.png",
+    "width": 1144,
+    "height": 1375,
+    "bytes": 2518849,
+    "sha256": "9fc4aa38eb2b309427a7f98772145e78f10fb57ad170e16265bfa3678e70abbd"
+  }
+]

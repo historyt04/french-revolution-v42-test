@@ -1,0 +1,1002 @@
+{
+  "schemaVersion": 1,
+  "unitId": "uk-revolution",
+  "title": "영국혁명",
+  "period": "17세기 초—1689",
+  "defaultEventId": "UK-01",
+  "answerPolicy": {
+    "allowCustomMatcher": true,
+    "automaticFuzzyMatch": false,
+    "note": "등록된 제목·허용 정답의 정규화 일치만 허용합니다."
+  },
+  "modes": {
+    "chronology": {
+      "eventIds": [
+        "UK-01",
+        "UK-02",
+        "UK-03",
+        "UK-04",
+        "UK-05",
+        "UK-06",
+        "UK-07",
+        "UK-08",
+        "UK-09",
+        "UK-10",
+        "UK-11",
+        "UK-12"
+      ],
+      "correctOrderFrom": "order"
+    },
+    "decoy": {
+      "eligibleAsForeignSource": true
+    }
+  },
+  "sources": {
+    "uk-parliament": {
+      "title": "UK Parliament · Living Heritage",
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/"
+    }
+  },
+  "events": [
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-01",
+      "order": 1,
+      "title": "청교도와 젠트리의 의회 진출",
+      "year": "17세기 초",
+      "dateLabel": "17세기 초",
+      "image": "content/uk-revolution/images/UK-01.png",
+      "shortDescription": "왕권을 견제하려는 청교도와 젠트리가 의회에서 세력을 키웠습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "상공업 발달로 젠트리와 시민 계층이 성장했습니다. 이들 가운데 청교도가 많았고, 의회에 진출해 국왕의 전제 정치를 비판했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "의회 세력의 성장은 국왕과 의회의 충돌이 커지는 바탕이 되었습니다."
+        }
+      ],
+      "previousEvent": null,
+      "nextEvent": "UK-02",
+      "focalX": 50,
+      "focalY": 38,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 38
+        },
+        "game": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-01",
+        "acceptedAnswers": [
+          "청교도와 젠트리의 의회 진출"
+        ],
+        "distractorEventIds": [
+          "UK-02",
+          "UK-03",
+          "UK-06"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "왕권을 견제하려는 청교도와 젠트리가 의회에서 세력을 키웠습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-01",
+        "imageEventId": "UK-01",
+        "titleEventId": "UK-01",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-01-청교도와 젠트리의 의회 진출.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-02",
+      "order": 2,
+      "title": "제임스 1세의 왕권신수설 주장",
+      "year": "1603–1625",
+      "dateLabel": "1603~1625년",
+      "image": "content/uk-revolution/images/UK-02.png",
+      "shortDescription": "제임스 1세는 왕권이 신에게서 왔다며 의회의 간섭을 거부했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "스튜어트 왕조를 연 제임스 1세는 국왕의 권한을 강하게 주장하고 의회와 잦게 충돌했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "왕권신수설과 전제 정치는 뒤이은 찰스 1세 시기에도 국왕과 의회의 대립을 심화했습니다."
+        }
+      ],
+      "previousEvent": "UK-01",
+      "nextEvent": "UK-03",
+      "focalX": 50,
+      "focalY": 32,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 32
+        },
+        "game": {
+          "x": 50,
+          "y": 32
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-02",
+        "acceptedAnswers": [
+          "제임스 1세의 왕권신수설 주장"
+        ],
+        "distractorEventIds": [
+          "UK-03",
+          "UK-04",
+          "UK-07"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "제임스 1세는 왕권이 신에게서 왔다며 의회의 간섭을 거부했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-02",
+        "imageEventId": "UK-02",
+        "titleEventId": "UK-02",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-02-제임스 1세의 왕권신수설 주장.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-03",
+      "order": 3,
+      "title": "권리청원 승인",
+      "year": "1628",
+      "dateLabel": "1628년",
+      "image": "content/uk-revolution/images/UK-03.png",
+      "shortDescription": "의회는 국왕의 자의적 과세와 체포를 제한하는 권리청원을 제출했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "찰스 1세가 의회의 동의 없이 세금을 거두고 사람들을 구금하자 의회는 권리청원을 제시했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "권리청원은 국왕도 법과 의회의 제약을 받아야 한다는 원칙을 분명히 했습니다."
+        }
+      ],
+      "previousEvent": "UK-02",
+      "nextEvent": "UK-04",
+      "focalX": 50,
+      "focalY": 30,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 30
+        },
+        "game": {
+          "x": 50,
+          "y": 30
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-03",
+        "acceptedAnswers": [
+          "권리청원 승인"
+        ],
+        "distractorEventIds": [
+          "UK-04",
+          "UK-05",
+          "UK-08"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "의회는 국왕의 자의적 과세와 체포를 제한하는 권리청원을 제출했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-03",
+        "imageEventId": "UK-03",
+        "titleEventId": "UK-03",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-03-권리청원 승인.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-04",
+      "order": 4,
+      "title": "찰스 1세의 의회 해산",
+      "year": "1629",
+      "dateLabel": "1629년",
+      "image": "content/uk-revolution/images/UK-04.png",
+      "shortDescription": "찰스 1세는 의회를 해산하고 약 11년 동안 의회 없이 통치했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "권리청원을 둘러싼 갈등 뒤 찰스 1세는 의회를 해산하고 독자적으로 세금을 거두며 통치했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "의회 없는 통치는 국왕에 대한 불신을 키워 내전으로 이어지는 갈등을 깊게 만들었습니다."
+        }
+      ],
+      "previousEvent": "UK-03",
+      "nextEvent": "UK-05",
+      "focalX": 50,
+      "focalY": 32,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 32
+        },
+        "game": {
+          "x": 50,
+          "y": 32
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-04",
+        "acceptedAnswers": [
+          "찰스 1세의 의회 해산"
+        ],
+        "distractorEventIds": [
+          "UK-05",
+          "UK-06",
+          "UK-09"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "찰스 1세는 의회를 해산하고 약 11년 동안 의회 없이 통치했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-04",
+        "imageEventId": "UK-04",
+        "titleEventId": "UK-04",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-04-찰스 1세의 의회 해산.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-05",
+      "order": 5,
+      "title": "찰스 1세의 의회 재소집",
+      "year": "1640",
+      "dateLabel": "1640년",
+      "image": "content/uk-revolution/images/UK-05.png",
+      "shortDescription": "재정이 부족해진 찰스 1세는 세금을 마련하려고 의회를 다시 소집했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "스코틀랜드와의 전쟁 비용이 필요해진 찰스 1세는 오랫동안 닫았던 의회를 다시 열었습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "재소집된 의회는 국왕의 전제 정치를 비판하며 개혁을 요구했고 대립은 내전으로 번졌습니다."
+        }
+      ],
+      "previousEvent": "UK-04",
+      "nextEvent": "UK-06",
+      "focalX": 50,
+      "focalY": 34,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 34
+        },
+        "game": {
+          "x": 50,
+          "y": 34
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-05",
+        "acceptedAnswers": [
+          "찰스 1세의 의회 재소집"
+        ],
+        "distractorEventIds": [
+          "UK-06",
+          "UK-07",
+          "UK-10"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "재정이 부족해진 찰스 1세는 세금을 마련하려고 의회를 다시 소집했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-05",
+        "imageEventId": "UK-05",
+        "titleEventId": "UK-05",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-05-찰스 1세의 의회 재소집.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-06",
+      "order": 6,
+      "title": "청교도 혁명과 내전",
+      "year": "1642",
+      "dateLabel": "1642년",
+      "image": "content/uk-revolution/images/UK-06.png",
+      "shortDescription": "국왕파와 의회파가 충돌하면서 영국 내전이 시작되었습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "찰스 1세와 의회가 군대의 통제권을 두고 맞서자 국왕파와 의회파 사이에 전쟁이 벌어졌습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "이 내전은 국왕의 권한과 의회의 권한 가운데 무엇이 우위인지 결정하는 싸움이었습니다."
+        }
+      ],
+      "previousEvent": "UK-05",
+      "nextEvent": "UK-07",
+      "focalX": 50,
+      "focalY": 48,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 48
+        },
+        "game": {
+          "x": 50,
+          "y": 48
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-06",
+        "acceptedAnswers": [
+          "청교도 혁명과 내전"
+        ],
+        "distractorEventIds": [
+          "UK-07",
+          "UK-08",
+          "UK-11"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "국왕파와 의회파가 충돌하면서 영국 내전이 시작되었습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-06",
+        "imageEventId": "UK-06",
+        "titleEventId": "UK-06",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-06-청교도 혁명과 내전.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-07",
+      "order": 7,
+      "title": "의회파의 승리",
+      "year": "1645–1648",
+      "dateLabel": "1645~1648년",
+      "image": "content/uk-revolution/images/UK-07.png",
+      "shortDescription": "크롬웰이 이끈 의회파 군대가 국왕파를 물리쳤습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "크롬웰의 신형군은 규율과 조직력을 바탕으로 네이즈비 전투 등에서 국왕파를 격파했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "의회파의 승리는 찰스 1세 재판과 처형, 공화정 수립으로 이어졌습니다."
+        }
+      ],
+      "previousEvent": "UK-06",
+      "nextEvent": "UK-08",
+      "focalX": 50,
+      "focalY": 40,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 40
+        },
+        "game": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-07",
+        "acceptedAnswers": [
+          "의회파의 승리"
+        ],
+        "distractorEventIds": [
+          "UK-08",
+          "UK-09",
+          "UK-12"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "크롬웰이 이끈 의회파 군대가 국왕파를 물리쳤습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-07",
+        "imageEventId": "UK-07",
+        "titleEventId": "UK-07",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-07-의회파의 승리.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-08",
+      "order": 8,
+      "title": "찰스 1세 처형과 공화정 수립",
+      "year": "1649",
+      "dateLabel": "1649년",
+      "image": "content/uk-revolution/images/UK-08.png",
+      "shortDescription": "찰스 1세가 처형되고 왕정이 폐지되면서 공화정이 수립되었습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "의회파는 찰스 1세를 반역죄로 재판해 처형하고 군주제와 상원을 폐지했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "유럽에서 국왕이 공개 재판을 거쳐 처형된 사건은 왕권의 절대성에 큰 충격을 주었습니다."
+        }
+      ],
+      "previousEvent": "UK-07",
+      "nextEvent": "UK-09",
+      "focalX": 50,
+      "focalY": 26,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 26
+        },
+        "game": {
+          "x": 50,
+          "y": 26
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-08",
+        "acceptedAnswers": [
+          "찰스 1세 처형과 공화정 수립"
+        ],
+        "distractorEventIds": [
+          "UK-09",
+          "UK-10",
+          "UK-01"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "찰스 1세가 처형되고 왕정이 폐지되면서 공화정이 수립되었습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-08",
+        "imageEventId": "UK-08",
+        "titleEventId": "UK-08",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-08-찰스 1세 처형과 공화정 수립.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-09",
+      "order": 9,
+      "title": "크롬웰의 호국경 통치",
+      "year": "1653–1658",
+      "dateLabel": "1653~1658년",
+      "image": "content/uk-revolution/images/UK-09.png",
+      "shortDescription": "크롬웰은 호국경이 되어 군사력을 바탕으로 영국을 통치했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "공화정의 정치적 혼란 속에서 크롬웰은 의회를 해산하고 호국경으로 집권했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "청교도적 개혁을 추진했지만 군사 독재에 가까운 통치로 반발도 커졌습니다."
+        }
+      ],
+      "previousEvent": "UK-08",
+      "nextEvent": "UK-10",
+      "focalX": 50,
+      "focalY": 38,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 38
+        },
+        "game": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-09",
+        "acceptedAnswers": [
+          "크롬웰의 호국경 통치"
+        ],
+        "distractorEventIds": [
+          "UK-10",
+          "UK-11",
+          "UK-02"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "크롬웰은 호국경이 되어 군사력을 바탕으로 영국을 통치했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-09",
+        "imageEventId": "UK-09",
+        "titleEventId": "UK-09",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-09-크롬웰의 호국경 통치.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-10",
+      "order": 10,
+      "title": "왕정복고",
+      "year": "1660",
+      "dateLabel": "1660년",
+      "image": "content/uk-revolution/images/UK-10.png",
+      "shortDescription": "크롬웰 사후 찰스 2세가 즉위하면서 왕정이 복구되었습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "크롬웰 사후 혼란이 계속되자 의회는 망명 중이던 찰스 2세를 국왕으로 불러들였습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "왕정은 돌아왔지만 국왕과 의회의 권한을 둘러싼 갈등은 끝나지 않았습니다."
+        }
+      ],
+      "previousEvent": "UK-09",
+      "nextEvent": "UK-11",
+      "focalX": 50,
+      "focalY": 42,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 42
+        },
+        "game": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-10",
+        "acceptedAnswers": [
+          "왕정복고"
+        ],
+        "distractorEventIds": [
+          "UK-11",
+          "UK-12",
+          "UK-03"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "크롬웰 사후 찰스 2세가 즉위하면서 왕정이 복구되었습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-10",
+        "imageEventId": "UK-10",
+        "titleEventId": "UK-10",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-10-왕정복고.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-11",
+      "order": 11,
+      "title": "명예혁명",
+      "year": "1688",
+      "dateLabel": "1688년",
+      "image": "content/uk-revolution/images/UK-11.png",
+      "shortDescription": "의회는 제임스 2세를 몰아내고 윌리엄과 메리를 공동 왕으로 세웠습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "제임스 2세의 가톨릭 우대와 전제 정치에 반발한 의회는 네덜란드의 윌리엄과 메리를 초청했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "큰 유혈 충돌 없이 정권이 바뀌었으며 국왕보다 의회의 권한이 강해지는 계기가 되었습니다."
+        }
+      ],
+      "previousEvent": "UK-10",
+      "nextEvent": "UK-12",
+      "focalX": 50,
+      "focalY": 38,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 38
+        },
+        "game": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-11",
+        "acceptedAnswers": [
+          "명예혁명"
+        ],
+        "distractorEventIds": [
+          "UK-12",
+          "UK-01",
+          "UK-04"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "의회는 제임스 2세를 몰아내고 윌리엄과 메리를 공동 왕으로 세웠습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-11",
+        "imageEventId": "UK-11",
+        "titleEventId": "UK-11",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "UK-11-명예혁명.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "uk-revolution",
+      "eventId": "UK-12",
+      "order": 12,
+      "title": "권리장전 승인과 입헌군주제 확립",
+      "year": "1689",
+      "dateLabel": "1689년",
+      "image": "content/uk-revolution/images/UK-12.png",
+      "shortDescription": "윌리엄과 메리는 권리장전을 승인하고 의회 중심의 통치를 받아들였습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "권리장전은 국왕이 의회의 동의 없이 법을 멈추거나 세금을 거둘 수 없도록 했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "영국은 국왕이 헌법과 의회의 제약을 받는 입헌군주제를 확립했습니다."
+        }
+      ],
+      "previousEvent": "UK-11",
+      "nextEvent": null,
+      "focalX": 50,
+      "focalY": 30,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 30
+        },
+        "game": {
+          "x": 50,
+          "y": 30
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "UK-12",
+        "acceptedAnswers": [
+          "권리장전 승인과 입헌군주제 확립"
+        ],
+        "distractorEventIds": [
+          "UK-01",
+          "UK-02",
+          "UK-05"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "윌리엄과 메리는 권리장전을 승인하고 의회 중심의 통치를 받아들였습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "UK-12",
+        "imageEventId": "UK-12",
+        "titleEventId": "UK-12",
+        "enabled": true
+      },
+      "sourceIds": [
+        "uk-parliament"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1144,
+        "height": 1375
+      },
+      "originalFilename": "UK-12-권리장전 승인과 입헌군주제 확립.png",
+      "datePrecision": "year"
+    }
+  ]
+}
