@@ -1,0 +1,11 @@
+/* Fast quiz path: questions are judged locally and the full transcript is verified once at completion. */
+(function(){'use strict';
+ const quizModes=new Set(['beginner','intermediate']);
+ const findQuestion=s=>(s.localQuestions||[]).find(q=>q.id===s.sequence[s.pos]);
+ function setQuestion(s){const q=findQuestion(s);s.question=q?{id:q.id,eventId:q.eventId,type:q.type,prompt:q.prompts[(s.retryRounds[q.id]||0)%q.prompts.length],image:q.image}:null}
+ function advanceLocal(a){const s=a.state;if(s.pos<s.sequence.length-1)s.pos++;else{const failed=s.originalSequence.filter(id=>!s.passed[id]);s.firstPassDone=true;if(!failed.length)return true;s.phase='retry';s.sequence=failed;s.pos=0;failed.forEach(id=>s.retryRounds[id]=(s.retryRounds[id]||0)+1)}s.roundAttempts=0;s.result='';setQuestion(s);return false}
+ const applyBase=applyAttempt42;
+ applyAttempt42=function(a){applyBase(a);if(a?.status==='active'&&a.state?.v26&&quizModes.has(a.mode)&&Array.isArray(a.state.localQuestions)){a.localSubmissions=a.localSubmissions||[];setQuestion(a.state)}};
+ async function submitCompleted(a){const out=await api42.request('attempt.quiz.complete',payload42(a.mode,{submissions:a.localSubmissions}));applyState42(out.student);applyAttempt42(out);render42()}
+ answer=function(e,m){if(!quizModes.has(m)||!attempts42[m]?.state?.v26)return;e.preventDefault();if(e.isComposing||busy42)return;const input=document.querySelector('#ans'),value=input?.value||'';if(!value.trim())return;const a=attempts42[m],s=a.state,q=findQuestion(s);if(!q)return toast42('문제를 다시 시작해 주세요.');const ok=q.answers.map(norm).includes(norm(value));a.localSubmissions.push({questionId:q.id,answer:value});s.roundAttempts++;s.totalAttempts[q.id]=(s.totalAttempts[q.id]||0)+1;s.feedback={correct:ok,message:ok?'정답입니다.':s.roundAttempts>=2?'정답: '+q.answerLabel+' · 마지막에 다시 풀어요.':'다시 생각해 보세요.'};let complete=false;if(ok){s.passed[q.id]=true;if(!s.successIds.includes(q.id))s.successIds.push(q.id);s.correctAnswers++;s.answerStreak++;s.maxStreak=Math.max(s.maxStreak,s.answerStreak);if(s.totalAttempts[q.id]===1)s.first++;complete=advanceLocal(a)}else{s.errors++;s.answerStreak=0;if(s.roundAttempts>=2)complete=advanceLocal(a)}if(complete){s.feedback={correct:true,message:'모든 문제를 풀었습니다. 완료 기록과 보상을 확인하는 중입니다.'};render42();return run42(()=>submitCompleted(a))}render42()};
+})();
