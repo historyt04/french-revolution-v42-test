@@ -1,0 +1,3 @@
+[functions.history-api]
+verify_jwt = false
+
