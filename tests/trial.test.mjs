@@ -9,6 +9,7 @@ test('isolated PostgreSQL trial lifecycle and adversarial inputs',async t=>{
   const db=await makeDB();t.after(()=>db.close());
   await t.test('migration reruns without wiping records',async()=>{
     await db.exec(await fs.readFile(new URL('../supabase/migrations/202609190005_student_trial.sql',import.meta.url),'utf8'));
+    await db.exec(await fs.readFile(new URL('../supabase/migrations/202609190006_trial_collection.sql',import.meta.url),'utf8'));
     assert.equal((await db.query('select count(*)::int as n from trial_questions')).rows[0].n,12);
   });
   await t.test('anonymous roles cannot call RPC or read trial data',async()=>{

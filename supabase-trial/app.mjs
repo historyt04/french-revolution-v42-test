@@ -1,13 +1,14 @@
 import {TrialClient} from './client.mjs';
 import {createQuiz,currentQuestion,submitAnswer,nextQuestion,hintFor} from './quiz.mjs?v=2';
-import {homeView,bottomNav,recordsView,connectionsView,memoryView} from './views.mjs?v=2';
-import {createConnections,checkConnections,nextConnections,createMemory,beginMemory,tickMemory,memoryHint,placeMemory,checkMemory} from './practice.mjs';
+import {homeView,bottomNav,recordsView,connectionsView,memoryView} from './views.mjs?v=3';
+import {createConnections,checkConnections,nextConnections,createMemory,beginMemory,tickMemory,memoryHint,placeMemory,checkMemory} from './practice.mjs?v=3';
+import {cardMarkup,packView,collectionView,celebrationView,tiers} from './collection.mjs?v=3';
 
 const app=document.querySelector('#app'),notice=document.querySelector('#notice');
 const client=new TrialClient();
 const names={normal:'노말',rare:'레어',unique:'유니크',legend:'전설',myth:'신화'};
 let state=null,schools=[],page='loading',quiz=null,attempt=null,completion=null,opening=null,revealed=false,busy=false,pending=null;
-let practice=null,practiceTimer=null;
+let practice=null,practiceTimer=null,collectionTier='normal',celebration=null;
 const timings=[];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const seconds=ms=>(ms/1000).toFixed(2)+'초';
@@ -15,11 +16,6 @@ const pendingKey=()=>`history-trial-pending:${client.session?.token.slice(0,16)|
 function savePending(value){pending=value;try{if(value)sessionStorage.setItem(pendingKey(),JSON.stringify(value));else sessionStorage.removeItem(pendingKey());}catch{}}
 function loadPending(){try{pending=JSON.parse(sessionStorage.getItem(pendingKey())||'null');}catch{pending=null;}}
 function message(text){notice.textContent=text;}
-function cardMarkup(card,quantity){
-  // Image paths are drawn from our fixed content bank, never remote arbitrary HTML.
-  const image=/^content\/fr-revolution\/images\/FR-\d{2}\.png$/.test(card.image)?card.image:'';
-  return `<article class="card ${card.effect==='shiny'?'shiny':''}">${image?`<img src="${esc(image)}" alt="${esc(card.title)}" loading="lazy">`:''}<h3>${esc(card.title)}</h3><p>${esc(names[card.rarity]||card.rarity)}${card.effect==='shiny'?' · ✨ 이로치':''}${quantity?` · ${quantity}장`:''}</p></article>`;
-}
 function render(){
   const pageChanged=document.body.dataset.page!==page;
   document.body.dataset.page=page;
@@ -56,12 +52,19 @@ function render(){
   }else if(page==='result'){
     content+=`<section class="panel"><p class="eyebrow">LEARNING COMPLETE</p><h1>초급 학습 완료!</h1><p>12문제 모두 성공 · 오답 ${completion.errorCount}회<br>처음에 바로 맞힌 문제 ${completion.firstTryCount}/12 · ${seconds(completion.elapsedMs)}</p><h2>${completion.rewardPacks?'일반 카드팩 1개가 지급되었습니다.':'완료 기록이 저장되었습니다.'}</h2><p>${completion.rewardPacks?'카드팩·도감에서 개봉할 수 있습니다.':'최초 완료 보상은 이미 받았습니다.'}</p><div class="actions"><button data-action="vault">카드팩·도감으로</button><button class="secondary" data-action="home">학습 홈으로</button></div></section>`;
   }else if(page==='vault'||page==='inventory'){
-    content+=`<section class="panel"><h1>카드팩·도감</h1><p>시험용 일반 카드팩 <strong>${state.packs}개</strong></p><button data-action="open" ${busy||pending||state.packs<1?'disabled':''}>카드팩 1개 개봉</button><p class="muted">카드 종류와 등급·이로치는 서버가 결정합니다. 공개 애니메이션은 이 기기에서만 처리합니다.</p><details><summary>시험용 확률과 범위</summary><p>일반팩: 노말 70% · 레어 23% · 유니크 6% · 전설 0.9% · 신화 0.1%<br>이번 시험판의 이로치는 1%입니다. 기존 교사 설정, 천장, 여러 효과, 8종 카드팩은 아직 이전하지 않았습니다.</p></details></section><section class="panel"><h2>획득 카드</h2><div class="cards">${state.cards.map(c=>cardMarkup(c,c.quantity)).join('')||'<p>아직 획득한 카드가 없습니다.</p>'}</div><h2>최근 개봉 결과</h2>${state.openings.map(o=>`<div class="record">${esc(o.card.title)} · ${esc(names[o.card.rarity])}${o.card.effect==='shiny'?' · 이로치':''}<br><small>${esc(new Date(o.created_at).toLocaleString('ko-KR'))}</small></div>`).join('')||'<p class="muted">아직 개봉 기록이 없습니다.</p>'}</section>`;
+    content+=celebrationView(state,celebration);
+    if(page==='vault'){
+      content+=`<section class="panel topline"><p>시험용 일반 카드팩 ${state.packs}개</p><div class="actions"><button data-action="open" data-pack="basic" ${busy||pending||!state.packs?'disabled':''}>카드팩 1개 개봉</button><button class="secondary" data-action="inventory">8종 카드팩 보관함</button></div></section>`;
+      content+=collectionView(state,collectionTier,busy||!!pending);
+    }else content+=packView(state,busy||!!pending);
   }else if(page==='opening'){
-    content+=`<section class="panel"><h1>${revealed?'카드를 획득했습니다!':'카드를 공개해 보세요'}</h1><p>카드팩 차감과 카드 저장은 이미 완료되었습니다.</p><div class="reveal">${revealed?cardMarkup(opening.card):'<button class="sealed" data-action="reveal" style="width:100%">✦<br>카드 공개</button>'}</div><button class="secondary" data-action="vault">도감으로</button></section>`;
+    const cards=opening.cards||[opening.card];
+    content+=`<section class="panel"><h1>${revealed?'카드를 획득했습니다!':'카드를 공개해 보세요'}</h1><p>카드팩 차감과 카드 저장은 이미 완료되었습니다.</p><div class="${cards.length>1?'multi-reveal':'reveal'}">${revealed?cards.map(c=>cardMarkup(c,1,'reveal')).join(''):'<button class="sealed" data-action="reveal" style="width:100%">✦<br>카드 공개</button>'}</div><button class="secondary" data-action="vault">도감으로</button><button class="secondary" data-action="inventory">카드팩 보관함</button></section>`;
+    if(revealed)content+=celebrationView(state,celebration);
   }
   app.innerHTML=nav+content+bottomNav(page,busy)+`<details class="panel timing-panel"><summary>이 기기의 서버 응답 시간</summary><table><thead><tr><th>동작</th><th>시간</th></tr></thead><tbody>${timings.slice(-12).map(t=>`<tr><td>${esc(t.action)}</td><td>${seconds(t.elapsed)}</td></tr>`).join('')}</tbody></table><small>문제 정답·오답 확인과 다음 문제 이동은 서버 요청 0회입니다.</small></details>`;
   if(pageChanged){document.documentElement.scrollTop=0;document.body.scrollTop=0;}
+  window.HistoryCards.mountHistoryCards(app);
 }
 function stopPractice(){clearInterval(practiceTimer);practiceTimer=null;practice=null;}
 function startPracticeTimer(){
@@ -102,7 +105,8 @@ async function mutate(action,payload){
 function acceptMutation(action,out){
   if(action==='game.start'){attempt=out;quiz=createQuiz(out.questions);page='quiz';}
   else if(action==='game.complete'){completion=out;quiz=null;attempt=null;page='result';}
-  else if(action==='pack.open'){opening=out;revealed=false;page='opening';}
+  else if(action==='pack.open'){opening=out;collectionTier=out.card.rarity;revealed=false;page='opening';}
+  else if(action==='collection.ack'){celebration=null;}
   else if(action==='game.abandon'){quiz=null;attempt=null;page='home';}
 }
 async function finish(){page='saving';render();await task(async()=>{
@@ -111,11 +115,9 @@ async function finish(){page='saving';render();await task(async()=>{
 });}
 app.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.isComposing)e.preventDefault();});
 app.addEventListener('change',e=>{
-  const {event,side}=e.target.dataset;
-  if(page!=='connections'||!event||!['cause','effect'].includes(side))return;
-  practice.choices[event]={...practice.choices[event],[side]:e.target.value};
-  const caption=e.target.parentElement.querySelector('p');
-  if(caption)caption.textContent=e.target.selectedOptions[0]?.textContent;
+  const {event}=e.target.dataset;
+  if(page!=='connections'||!event||practice.solved.includes(event))return;
+  practice.choices[event]=e.target.value;
 });
 app.addEventListener('submit',async e=>{
   e.preventDefault();if(busy)return;
@@ -132,6 +134,14 @@ app.addEventListener('submit',async e=>{
 app.addEventListener('click',async e=>{
   const button=e.target.closest('[data-action]');if(!button||busy||button.disabled)return;
   const action=button.dataset.action;
+  if(action==='tier'){if(tiers[button.dataset.tier])collectionTier=button.dataset.tier;render();return;}
+  if(action==='celebrate'){celebration=button.dataset.milestone;render();return;}
+  if(action==='milestone-ack'){
+    await task(async()=>{acceptMutation('collection.ack',await mutate('collection.ack',{milestone:button.dataset.milestone}));});return;
+  }
+  if(action==='representative'){
+    await task(async()=>{await mutate('collection.preference',{eventId:button.dataset.event,rarity:button.dataset.tier,effect:button.dataset.effect});});return;
+  }
   if(action.startsWith('connection-')){
     if(page!=='connections'||!practice)return;
     if(action==='connection-check')checkConnections(practice);
@@ -170,7 +180,7 @@ app.addEventListener('click',async e=>{
     await task(async()=>{acceptMutation('game.start',await mutate('game.start',{gameId:'fr-beginner'}));});
     document.querySelector('#answer-input')?.focus();return;
   }
-  if(action==='open'){await task(async()=>{acceptMutation('pack.open',await mutate('pack.open',{}));});return;}
+  if(action==='open'){await task(async()=>{acceptMutation('pack.open',await mutate('pack.open',state.collectionVersion>=2?{packType:button.dataset.pack||'basic',count:Number(button.dataset.count||1)}:{}));});return;}
   if(action==='retry'&&pending){const saved=pending;await task(async()=>{const out=await mutate(saved.action,saved.payload);acceptMutation(saved.action,out);});}
 });
 addEventListener('beforeunload',e=>{if(quiz&&!quiz.done){e.preventDefault();e.returnValue='';}});

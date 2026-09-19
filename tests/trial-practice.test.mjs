@@ -7,7 +7,7 @@ test('connection board covers 12 distinct events, preserves correct rows, reject
   const s=createConnections();assert.equal(new Set(s.sequence.map(e=>e.id)).size,12);
   assert.equal(checkConnections(s),false);assert.equal(nextConnections(s),false);
   for(let r=0;r<4;r++){
-    for(const e of connectionRound(s))s.choices[e.id]={cause:e.id,effect:e.id};
+    for(const e of connectionRound(s))s.choices[e.id]=e.id;
     assert.equal(checkConnections(s),true);checkConnections(s);
     assert.equal(s.solved.length,(r+1)*3);assert.equal(nextConnections(s),true);
   }

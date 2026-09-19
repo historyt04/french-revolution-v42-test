@@ -68,6 +68,16 @@ test('real app DOM → login → retry quiz → lost completion response → rel
   ui.click('reveal');assert.match(ui.text(),/카드를 획득했습니다/);
   assert.equal((await db.query('select count(*)::int n from trial_openings')).rows[0].n,1);
   ui.click('vault');assert.ok(ui.w.document.querySelector('.card img'));
+  assert.equal(ui.w.document.querySelectorAll('.collection-slot').length,12);
+  const beforeCollection=requests.length;
+  ui.w.document.querySelector('.history-card').click();
+  assert.ok(ui.w.document.querySelector('.history-card.is-back'));
+  assert.equal(requests.length,beforeCollection,'card flipping is local');
+  const repButton=ui.w.document.querySelector('[data-action="representative"]:not(:disabled)');
+  const chosen={event:repButton.dataset.event,tier:repButton.dataset.tier,effect:repButton.dataset.effect};
+  repButton.click();await until(()=>requests.includes('collection.preference')&&!ui.w.document.querySelector('[data-action="home"]').disabled);
+  const pref=(await db.query('select event_id,rarity,effect from trial_card_preferences')).rows[0];
+  assert.deepEqual(pref,{event_id:chosen.event,rarity:chosen.tier,effect:chosen.effect});
   ui.click('home');
   assert.ok(ui.w.document.querySelector('.revolution-hero'));
   assert.equal(ui.w.document.querySelectorAll('.chapter-tile').length,4);

@@ -1,4 +1,4 @@
-import {events,zones,connectionRound} from './practice.mjs';
+import {events,zones,connectionRound} from './practice.mjs?v=3';
 export const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icons={book:'M5 5h7l4 3 4-3h7v22h-7l-4 3-4-3H5z M16 8v22 M8 10h4m-4 5h4m-4 5h4m8-10h4m-4 5h4m-4 5h4',
   quill:'M7 27 25 7 M10 24C5 15 12 4 29 3c0 16-6 23-16 20 M15 17h9 M19 12h8',
@@ -11,23 +11,23 @@ const icons={book:'M5 5h7l4 3 4-3h7v22h-7l-4 3-4-3H5z M16 8v22 M8 10h4m-4 5h4m-4
   star:'m16 3 4 9 10 1-8 7 2 10-8-5-8 5 2-10-8-7 10-1z'};
 export const icon=name=>`<svg class="icon" viewBox="0 0 32 34" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[name]||icons.star}"/></svg>`;
 function menu({title,sub,color,iconName,action,disabled=false},locked){
-  return `<button class="chapter-tile ${color}" ${disabled||locked?'disabled':''} ${action?`data-action="${action}"`:''}><span class="tile-ribbon">${title}</span><span class="tile-illustration">${icon(iconName)}</span><span class="tile-sub">${sub}</span><span class="tile-cta">${disabled?'이전 준비 중':action==='start'?'학습 시작  →':'연습하기  →'}</span></button>`;
+  return `<button class="chapter-tile ${color}" ${disabled||locked?'disabled':''} ${action?`data-action="${action}"`:''}><span class="tile-ribbon">${title}</span><span class="tile-sub">${sub}</span><span class="tile-illustration">${icon(iconName)}</span><span class="tile-cta">${disabled?'서버 이전 준비 중':action==='start'?'학습 시작  →':'혁명의 연결고리  →'}</span></button>`;
 }
 export function homeView(state,locked=false){
   const recent=state.runs[0],eventCount=new Set(state.cards.map(c=>c.eventId)).size;
   const total=state.cards.reduce((n,c)=>n+c.quantity,0);
-  return `<section class="revolution-hero" aria-labelledby="home-title"><p class="hero-date">1789 <span>◆</span> 1799</p><h1 id="home-title">프랑스 혁명</h1><p class="hero-subtitle">혁명의 기록</p><p class="hero-motto">자유, 평등, 그리고 새로운 시대를 향하여</p></section>
-  <section class="parchment status-strip" aria-label="나의 학습 현황"><div class="student-seal">${icon('quill')}</div><div class="student-welcome"><small>혁명의 기록자</small><strong>${esc(state.profile.name)}</strong></div><div><small>초급 학습</small><strong>${recent?'완료 기록 있음':'첫 기록을 기다려요'}</strong></div><div><small>사건 카드 수집</small><strong>${eventCount} <em>/ 12종</em></strong></div><div><small>보관 카드팩</small><strong>${state.packs} <em>개</em></strong></div></section>
-  <div class="home-layout"><section class="game-library" aria-label="학습과 게임"><div class="section-heading"><span>Ⅰ</span><h2>배우고, 도전하고, 기록하세요</h2><span class="heading-line"></span></div><div class="chapter-grid">
+  return `<section class="revolution-hero" aria-labelledby="home-title"><div class="hero-side left">LIBERTÉ<br>ÉGALITÉ<br>FRATERNITÉ<small>자유, 평등,<br>그리고 더 나은 세상을 위하여.</small></div><h1 id="home-title">프랑스 혁명</h1><p class="hero-subtitle">혁명의 기록</p><div class="hero-ornament" aria-hidden="true"><span>❧</span><i></i><span>❧</span></div><p class="hero-motto">역사는 결코, 저절로 바뀌지 않는다.</p><div class="hero-side right">1789 — 1799<small>오늘의 시민이<br>내일의 역사를 만든다.</small></div></section>
+  <section class="parchment status-strip" aria-label="나의 학습 현황"><div class="student-seal">${icon('quill')}</div><div class="student-welcome"><small>혁명의 기록자</small><strong>${esc(state.profile.name)}</strong></div><div><small>초급 학습</small><strong>${recent?'완료 기록 있음':'첫 기록을 기다려요'}</strong></div><div><small>사건 카드 수집</small><strong>${eventCount} <em>/ 12종</em></strong></div><div><small>보관 카드팩</small><strong>${state.packCounts?Object.values(state.packCounts).reduce((a,b)=>a+b,0):state.packs} <em>개</em></strong></div></section>
+  <div class="home-layout"><section class="game-library" aria-label="학습과 게임"><div class="section-heading"><span>✦</span><h2>학습할 게임을 선택하세요</h2><span class="heading-line"></span></div><div class="chapter-grid">
   ${[
-    {title:'초급',sub:'핵심어로 만나는 프랑스혁명',color:'green',iconName:'book',action:'start'},
-    {title:'중급',sub:'원인과 결과 · 개념 구별',color:'blue',iconName:'quill',disabled:true},
-    {title:'고급',sub:'사건을 깊이 이해하는 도전',color:'red',iconName:'sword',disabled:true},
-    {title:'도전',sub:'배운 내용을 하나로',color:'purple',iconName:'crown',disabled:true},
+    {title:'기초학습',sub:'원인과 결과로 사건을 이어요',color:'green',iconName:'book',action:'connections'},
+    {title:'초급',sub:'핵심어로 만나는 프랑스혁명',color:'blue',iconName:'quill',action:'start'},
+    {title:'중급',sub:'변화의 흐름을 이해해요',color:'red',iconName:'sword',disabled:true},
+    {title:'고급',sub:'혁명의 순서를 완성해요',color:'purple',iconName:'crown',disabled:true},
   ].map(x=>menu(x,locked)).join('')}</div>
-  <div class="small-games"><button data-action="connections" class="mini-tile" ${locked?'disabled':''}>${icon('link')}<span><strong>혁명의 연결고리</strong><small>원인 → 사건 → 결과 · 연습</small></span></button><button data-action="memory" class="mini-tile" ${locked?'disabled':''}>${icon('map')}<span><strong>기억도전</strong><small>사라진 혁명 지도 · 연습</small></span></button><button class="mini-tile" disabled>${icon('clock')}<span><strong>스피드런</strong><small>서버 이전 준비 중</small></span></button><button class="mini-tile" disabled>${icon('cards')}<span><strong>짝맞추기 · 미끼런</strong><small>서버 이전 준비 중</small></span></button></div>
+  <div class="small-games"><button class="mini-tile" disabled>${icon('clock')}<span><strong>스피드런</strong><small>서버 이전 준비 중</small></span></button><button class="mini-tile" disabled>${icon('quill')}<span><strong>미끼런</strong><small>서버 이전 준비 중</small></span></button><button class="mini-tile" disabled>${icon('cards')}<span><strong>짝맞추기</strong><small>서버 이전 준비 중</small></span></button><button data-action="memory" class="mini-tile" ${locked?'disabled':''}>${icon('map')}<span><strong>기억도전</strong><small>사라진 혁명 지도 · 연습</small></span></button></div>
   <p class="home-note">초급은 완료 기록·보상까지 연결되었습니다. 연습 메뉴는 이 기기에서만 진행하며 보상·서버 기록이 없습니다.</p></section>
-  <aside class="parchment reward-panel"><p class="eyebrow">나의 혁명 수집품</p><h2>작은 배움이<br>한 장의 기록으로</h2><div class="pack-emblem">${icon('cards')}<span>RÉVOLUTION</span><b>1789</b></div><p>${state.rewardClaimed?'최초 완료 보상을 받았습니다.':'초급 최초 완료 시<br><b>일반 카드팩 1개</b>'}</p><button data-action="vault" ${locked?'disabled':''}>보관함 열기 <span>${state.packs}</span></button><small>현재 소장 카드 ${total}장</small></aside></div>
+  <aside class="parchment reward-panel"><p class="eyebrow">오늘의</p><h2>학습 보상</h2><div class="reward-art"><img src="supabase-trial/assets/packs/basic.webp" alt="기존 일반 카드팩" decoding="async"></div><p>${state.rewardClaimed?'최초 완료 보상을 받았습니다.':'초급 최초 완료 시<br><b>일반 카드팩 1개</b>'}</p><button data-action="inventory" ${locked?'disabled':''}>보관함 열기 <span>${state.packCounts?Object.values(state.packCounts).reduce((a,b)=>a+b,0):state.packs}</span></button><small>현재 소장 카드 ${total}장</small></aside></div>
   <section class="recent-strip"><div>${icon('book')}<p><small>나의 최근 기록</small><br>${recent?`초급 12문항 완료 · ${esc(new Date(recent.completedAt).toLocaleDateString('ko-KR'))}`:'아직 기록이 없어요. 첫 학습을 시작해 보세요.'}</p></div><button class="text-button" data-action="records" ${locked?'disabled':''}>기록 보기 →</button></section>`;
 }
 export function bottomNav(page,locked=false){return `<nav class="bottom-nav" aria-label="학습 메뉴">${[['home','게임','sword'],['missions','미션','star'],['vault','카드 도감','book'],['inventory','보관함','cards']].map(([action,label,i])=>`<button data-action="${action}" class="${page===action||(page==='opening'&&action==='inventory')?'active':''}" ${locked?'disabled':''}>${icon(i)}<span>${label}</span></button>`).join('')}</nav>`;}
@@ -36,7 +36,16 @@ function practiceHeader(title,subtitle){return `<div class="practice-heading"><p
 export function connectionsView(s){
   if(s.offset>=events.length)return `${practiceHeader('혁명의 연결고리','12개 사건의 원인과 결과를 모두 연결했습니다.')}<section class="parchment practice-complete"><h2>혁명의 흐름이 이어졌어요!</h2><p>이 연습 결과는 서버에 저장되지 않습니다.</p><button data-action="connections">다시 연습</button><button class="secondary" data-action="home">학습 홈으로</button></section>`;
   const rows=connectionRound(s),ready=rows.every(e=>s.solved.includes(e.id));
-  return `${practiceHeader('혁명의 연결고리','원인과 결과를 골라 사건의 흐름을 완성하세요.')}<div class="parchment practice-toolbar"><strong>연결한 사건 ${s.solved.length} / 12</strong><span>${s.offset/3+1} / 4 묶음</span><button class="text-button" data-action="practice-exit">나가기</button></div><section class="connections-board"><div class="connection-labels"><span>왜 일어났을까?</span><span>사건</span><span>무엇이 달라졌을까?</span></div>${rows.map(e=>{const solved=s.solved.includes(e.id);return `<article class="connection-row ${solved?'solved':''}"><label class="parchment connection-choice"><span>원인</span><select data-event="${e.id}" data-side="cause" ${solved?'disabled':''}><option value="">원인을 선택하세요</option>${s.options.cause.map(o=>`<option value="${o.id}" ${s.choices[e.id]?.cause===o.id?'selected':''}>${esc(o.cause)}</option>`).join('')}</select><p>${esc(events.find(o=>o.id===s.choices[e.id]?.cause)?.cause||'사건 이전의 상황을 떠올려 보세요.')}</p></label><div class="event-medallion"><small>${esc(e.date)}</small><h2>${esc(e.title)}</h2><span>${solved?'✓ 연결 완료':'◆'}</span></div><label class="parchment connection-choice"><span>결과</span><select data-event="${e.id}" data-side="effect" ${solved?'disabled':''}><option value="">결과를 선택하세요</option>${s.options.effect.map(o=>`<option value="${o.id}" ${s.choices[e.id]?.effect===o.id?'selected':''}>${esc(o.effect)}</option>`).join('')}</select><p>${esc(events.find(o=>o.id===s.choices[e.id]?.effect)?.effect||'이 사건이 가져온 변화를 찾아보세요.')}</p></label></article>`;}).join('')}</section><div class="practice-controls"><p role="status">${esc(s.feedback||'각 행의 원인과 결과를 모두 선택한 뒤 확인을 누르세요.')}</p><button data-action="connection-check">연결 확인</button>${ready?'<button data-action="connection-next">다음 묶음 →</button>':''}</div>`;
+  return `${practiceHeader('혁명의 연결고리','양옆의 설명을 읽고, 가운데에 들어갈 사건을 맞혀 보세요.')}
+  <div class="parchment practice-toolbar"><strong>연결한 사건 ${s.solved.length} / 12</strong><span>${s.offset/3+1} / 4 묶음</span><button class="text-button" data-action="practice-exit">나가기</button></div>
+  <section class="connections-board"><div class="connection-labels"><span>원인 · 이전 상황</span><span>어떤 사건일까요?</span><span>결과 · 이후 변화</span></div>
+  ${rows.map((e,i)=>{const solved=s.solved.includes(e.id);return `<article class="connection-row ${solved?'solved':''}">
+    <div class="parchment connection-clue"><small>원인 · 이전 상황</small><p>${esc(e.cause)}</p></div>
+    <label class="event-medallion connection-choice"><span>사건 ${s.offset+i+1}</span><b class="connection-mark" aria-hidden="true">${solved?'✓':'?'}</b>
+    <select data-event="${e.id}" aria-label="${s.offset+i+1}번 가운데 사건" ${solved?'disabled':''}><option value="">사건을 선택하세요</option>${s.options.map(o=>`<option value="${o.id}" ${s.choices[e.id]===o.id?'selected':''}>${esc(o.title)}</option>`).join('')}</select>
+    <small>${solved?'연결 완료': '양옆 설명이 단서예요'}</small></label>
+    <div class="parchment connection-clue"><small>결과 · 이후 변화</small><p>${esc(e.effect)}</p></div></article>`;}).join('')}</section>
+    <div class="practice-controls"><p role="status">${esc(s.feedback||'가운데 사건을 선택한 뒤 연결 확인을 누르세요.')}</p><button data-action="connection-check">연결 확인</button>${ready?'<button data-action="connection-next">다음 묶음 →</button>':''}</div>`;
 }
 export function memoryView(s){
   const show=s.phase==='memorize'||(s.phase==='play'&&Date.now()<s.visibleUntil),seconds=Math.max(0,Math.ceil((s.visibleUntil-Date.now())/1000));

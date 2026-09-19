@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {makeDB,api} from './trial-db.mjs';
 const db=await makeDB(),root=path.resolve(import.meta.dirname,'..');
-const types={'.html':'text/html','.mjs':'text/javascript','.css':'text/css','.png':'image/png','.woff2':'font/woff2'};
+const types={'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 http.createServer(async(req,res)=>{
   const url=new URL(req.url,'http://localhost:8000');
   try {

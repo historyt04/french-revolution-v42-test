@@ -28,13 +28,13 @@ export function createConnections(){
 }
 export function connectionRound(s){
   const current=s.sequence.slice(s.offset,s.offset+3);
-  if(!s.options)s.options={cause:shuffle(current),effect:shuffle(current)};
+  if(!s.options)s.options=shuffle(current);
   return current;
 }
 export function checkConnections(s){
-  const rows=connectionRound(s),missing=rows.some(e=>!s.choices[e.id]?.cause||!s.choices[e.id]?.effect);
-  if(missing){s.feedback='각 사건의 원인과 결과를 모두 선택하세요.';return false;}
-  for(const e of rows)if(s.choices[e.id].cause===e.id&&s.choices[e.id].effect===e.id&&!s.solved.includes(e.id))s.solved.push(e.id);
+  const rows=connectionRound(s),missing=rows.some(e=>!s.choices[e.id]);
+  if(missing){s.feedback='양옆 설명을 읽고 가운데 사건을 모두 선택하세요.';return false;}
+  for(const e of rows)if(s.choices[e.id]===e.id&&!s.solved.includes(e.id))s.solved.push(e.id);
   s.feedback=rows.every(e=>s.solved.includes(e.id))?'세 사건의 연결을 모두 찾았습니다!':'맞은 연결은 유지됩니다. 아직 맞지 않은 사건을 다시 살펴보세요.';
   return rows.every(e=>s.solved.includes(e.id));
 }
