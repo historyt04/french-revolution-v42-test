@@ -1,3 +1,5 @@
 [functions.history-api]
 verify_jwt = false
 
+[functions.history-trial-api]
+verify_jwt = false
