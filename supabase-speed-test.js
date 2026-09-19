@@ -73,15 +73,47 @@
       token = login.data.token;
       addRow("학생 로그인", login.elapsed, `${login.data.student.profile.name} 확인`);
 
+      const startRequestId = crypto.randomUUID();
+      const playStarted = performance.now();
+      const start = await call(baseUrl, "game.start", {
+        gameId: "fr-beginner",
+        requestId: startRequestId,
+      }, token);
+      addRow("게임 시작", start.elapsed, "초급 기록 생성");
+
+      const completion = await call(baseUrl, "game.complete", {
+        attemptId: start.data.attemptId,
+        requestId: crypto.randomUUID(),
+        elapsedMs: Math.max(0, Math.round(performance.now() - playStarted)),
+        correctCount: 12,
+        totalCount: 12,
+        errorCount: 0,
+        hintCount: 0,
+      }, token);
+      addRow("완료·보상", completion.elapsed, completion.data.rewarded ? "일반 카드팩 1개 지급" : "이미 최초 완료 보상을 받음");
+
       const state = await call(baseUrl, "student.state", {}, token);
-      addRow("학생 화면 자료", state.elapsed, `게임 ${state.data.games.length}개`);
+      const generalPack = state.data.packs.find((item) => item.unit_id === "fr-revolution" && item.pack_id === "general");
+      addRow("학생 화면 자료", state.elapsed, `게임 ${state.data.games.length}개 · 카드팩 ${generalPack?.quantity || 0}개`);
+
+      if (generalPack?.quantity > 0) {
+        const opened = await call(baseUrl, "pack.open", {
+          unitId: "fr-revolution",
+          packId: "general",
+          requestId: crypto.randomUUID(),
+        }, token);
+        const shiny = opened.data.card.effect === "shiny" ? " · 이로치" : "";
+        addRow("카드팩 개봉", opened.elapsed, `${opened.data.card.title} (${opened.data.card.rarity}${shiny})`);
+      } else {
+        addRow("카드팩 개봉", 0, "남은 시험용 카드팩 없음");
+      }
 
       const logout = await call(baseUrl, "session.logout", {}, token);
       addRow("로그아웃", logout.elapsed, "정상");
       token = "";
 
       const total = Math.round(performance.now() - totalStarted);
-      summary.innerHTML = `전체 <strong class="${resultClass(total)}">${total.toLocaleString()} ms</strong> — 네 단계 모두 성공했습니다.`;
+      summary.innerHTML = `전체 <strong class="${resultClass(total)}">${total.toLocaleString()} ms</strong> — 실제 게임 저장·보상 시험까지 성공했습니다.`;
     } catch (error) {
       const elapsed = Number.isFinite(error.elapsed) ? ` (${error.elapsed.toLocaleString()} ms)` : "";
       summary.innerHTML = `<strong class="bad">실패:</strong> ${String(error.message || error)}${elapsed}`;
