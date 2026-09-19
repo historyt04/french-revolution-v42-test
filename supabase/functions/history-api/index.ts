@@ -1,7 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.4";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
-const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+const SERVICE_ROLE_KEY = Deno.env.get("HISTORY_SERVICE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const ALLOWED_ORIGINS = new Set([
   "https://historyt04.github.io",
   "http://localhost:8000",
@@ -70,7 +70,10 @@ async function bootstrap() {
     .select("id,name")
     .eq("active", true)
     .order("name");
-  if (error) throw new ApiError("SERVER_ERROR", "학교 목록을 불러오지 못했습니다.", 500);
+  if (error) {
+    console.error("bootstrap database error", error);
+    throw new ApiError("SERVER_ERROR", "학교 목록을 불러오지 못했습니다.", 500);
+  }
   return { schools: data ?? [], schoolYear: 2026, serverNow: Date.now(), apiVersion: "supabase-1" };
 }
 
