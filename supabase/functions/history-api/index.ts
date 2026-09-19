@@ -187,6 +187,99 @@ async function logout(sessionId: string) {
   return { loggedOut: true };
 }
 
+async function startGame(studentId: string, payload: Record<string, unknown>) {
+  const gameId = requireText(payload.gameId, "게임", 80);
+  const requestId = requireText(payload.requestId, "요청 번호", 80);
+  if (!/^[0-9a-f-]{36}$/i.test(requestId)) throw new ApiError("INVALID_INPUT", "요청 번호를 확인해 주세요.");
+
+  const { data: game, error: gameError } = await db
+    .from("games")
+    .select("id,unit_id,mode,title,settings,units!inner(content_version)")
+    .eq("id", gameId)
+    .eq("active", true)
+    .maybeSingle();
+  if (gameError || !game) throw new ApiError("NOT_FOUND", "게임을 찾지 못했습니다.", 404);
+
+  const challenge = randomToken().slice(0, 24);
+  const contentVersion = Number((game.units as unknown as { content_version: number }).content_version || 1);
+  const { data: attempt, error } = await db.from("game_attempts").insert({
+    request_id: requestId,
+    student_id: studentId,
+    game_id: game.id,
+    content_version: contentVersion,
+    status: "started",
+    challenge,
+  }).select("id,started_at").single();
+
+  if (error?.code === "23505") {
+    const { data: existing } = await db
+      .from("game_attempts")
+      .select("id,student_id,game_id,status,started_at")
+      .eq("request_id", requestId)
+      .maybeSingle();
+    if (!existing || existing.student_id !== studentId || existing.game_id !== game.id) {
+      throw new ApiError("REQUEST_CONFLICT", "이미 사용된 요청 번호입니다.", 409);
+    }
+    return { attemptId: existing.id, startedAt: existing.started_at, status: existing.status, game };
+  }
+  if (error || !attempt) throw new ApiError("SERVER_ERROR", "게임을 시작하지 못했습니다.", 500);
+  return { attemptId: attempt.id, startedAt: attempt.started_at, status: "started", game };
+}
+
+async function completeGame(studentId: string, payload: Record<string, unknown>) {
+  const attemptId = requireText(payload.attemptId, "게임 기록", 80);
+  const requestId = requireText(payload.requestId, "요청 번호", 80);
+  const elapsedMs = requireInteger(payload.elapsedMs, "진행 시간", 0, 86400000);
+  const correctCount = requireInteger(payload.correctCount, "정답 수", 0, 1000);
+  const totalCount = requireInteger(payload.totalCount, "문제 수", 1, 1000);
+  const errorCount = requireInteger(payload.errorCount ?? 0, "오답 수", 0, 10000);
+  const hintCount = requireInteger(payload.hintCount ?? 0, "힌트 수", 0, 10000);
+  if (!/^[0-9a-f-]{36}$/i.test(attemptId) || !/^[0-9a-f-]{36}$/i.test(requestId)) {
+    throw new ApiError("INVALID_INPUT", "게임 기록 번호를 확인해 주세요.");
+  }
+
+  const { data, error } = await db.rpc("complete_game_attempt", {
+    p_student_id: studentId,
+    p_attempt_id: attemptId,
+    p_request_id: requestId,
+    p_elapsed_ms: elapsedMs,
+    p_correct_count: correctCount,
+    p_total_count: totalCount,
+    p_error_count: errorCount,
+    p_hint_count: hintCount,
+  });
+  if (error) {
+    console.error("complete game database error", error);
+    const known = String(error.message ?? "");
+    if (known.includes("ATTEMPT_NOT_FOUND")) throw new ApiError("NOT_FOUND", "진행 중인 게임을 찾지 못했습니다.", 404);
+    if (known.includes("INVALID_")) throw new ApiError("INVALID_COMPLETION", "완료 정보를 확인해 주세요.", 400);
+    throw new ApiError("SERVER_ERROR", "완료 기록을 저장하지 못했습니다.", 500);
+  }
+  return data;
+}
+
+async function openPack(studentId: string, payload: Record<string, unknown>) {
+  const unitId = requireText(payload.unitId, "단원", 80);
+  const packId = requireText(payload.packId, "카드팩", 80);
+  const requestId = requireText(payload.requestId, "요청 번호", 80);
+  if (!/^[0-9a-f-]{36}$/i.test(requestId)) throw new ApiError("INVALID_INPUT", "요청 번호를 확인해 주세요.");
+
+  const { data, error } = await db.rpc("open_student_pack", {
+    p_student_id: studentId,
+    p_unit_id: unitId,
+    p_pack_id: packId,
+    p_request_id: requestId,
+  });
+  if (error) {
+    console.error("open pack database error", error);
+    const known = String(error.message ?? "");
+    if (known.includes("PACK_EMPTY")) throw new ApiError("PACK_EMPTY", "열 수 있는 카드팩이 없습니다.", 409);
+    if (known.includes("CARD_CATALOG_EMPTY")) throw new ApiError("CARD_CATALOG_EMPTY", "이 단원의 카드가 아직 준비되지 않았습니다.", 409);
+    throw new ApiError("SERVER_ERROR", "카드팩을 열지 못했습니다.", 500);
+  }
+  return data;
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get("Origin");
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors(origin) });
@@ -206,6 +299,9 @@ Deno.serve(async (req) => {
     else {
       const session = await authenticate(body.token);
       if (action === "student.state") data = await studentState(session.actor_id);
+      else if (action === "game.start") data = await startGame(session.actor_id, payload);
+      else if (action === "game.complete") data = await completeGame(session.actor_id, payload);
+      else if (action === "pack.open") data = await openPack(session.actor_id, payload);
       else if (action === "session.logout") data = await logout(session.id);
       else throw new ApiError("UNKNOWN_ACTION", "아직 지원하지 않는 요청입니다.", 404);
     }
