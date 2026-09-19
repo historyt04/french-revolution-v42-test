@@ -1,0 +1,1002 @@
+{
+  "schemaVersion": 1,
+  "unitId": "us-revolution",
+  "title": "미국혁명",
+  "period": "1607—1789",
+  "defaultEventId": "US-01",
+  "answerPolicy": {
+    "allowCustomMatcher": true,
+    "automaticFuzzyMatch": false,
+    "note": "등록된 제목·허용 정답의 정규화 일치만 허용합니다."
+  },
+  "modes": {
+    "chronology": {
+      "eventIds": [
+        "US-01",
+        "US-02",
+        "US-03",
+        "US-04",
+        "US-05",
+        "US-06",
+        "US-07",
+        "US-08",
+        "US-09",
+        "US-10",
+        "US-11",
+        "US-12"
+      ],
+      "correctOrderFrom": "order"
+    },
+    "decoy": {
+      "eligibleAsForeignSource": true
+    }
+  },
+  "sources": {
+    "us-founders": {
+      "title": "미국 국립문서기록관리청 · Founding Documents",
+      "url": "https://www.archives.gov/founding-docs"
+    }
+  },
+  "events": [
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-01",
+      "order": 1,
+      "title": "북아메리카 13개 식민지 성장",
+      "year": "1607–1732",
+      "dateLabel": "1607~1732년",
+      "image": "content/us-revolution/images/US-01.png",
+      "shortDescription": "영국인은 북아메리카 동부에 13개 식민지를 세우고 자치 전통을 키웠습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "영국의 식민지는 서로 다른 시기에 형성되었지만 지역 의회를 운영하며 자치 경험을 쌓았습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "이 자치 전통은 본국의 일방적인 과세에 맞서는 정치적 기반이 되었습니다."
+        }
+      ],
+      "previousEvent": null,
+      "nextEvent": "US-02",
+      "focalX": 50,
+      "focalY": 45,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 45
+        },
+        "game": {
+          "x": 50,
+          "y": 45
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-01",
+        "acceptedAnswers": [
+          "북아메리카 13개 식민지 성장"
+        ],
+        "distractorEventIds": [
+          "US-02",
+          "US-03",
+          "US-06"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "영국인은 북아메리카 동부에 13개 식민지를 세우고 자치 전통을 키웠습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-01",
+        "imageEventId": "US-01",
+        "titleEventId": "US-01",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-01-영국의 북아메리카 13개 식민지 건설.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-02",
+      "order": 2,
+      "title": "7년 전쟁 이후 과세 강화",
+      "year": "1763 이후",
+      "dateLabel": "1763년 이후",
+      "image": "content/us-revolution/images/US-02.png",
+      "shortDescription": "영국은 전쟁 비용을 충당하려고 식민지에 새로운 세금을 부과했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "7년 전쟁 뒤 큰 빚을 진 영국 정부는 북아메리카 방위 비용을 식민지인에게 부담시키려 했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "식민지인은 대표 없는 곳에 과세할 수 없다며 영국의 정책에 반발했습니다."
+        }
+      ],
+      "previousEvent": "US-01",
+      "nextEvent": "US-03",
+      "focalX": 50,
+      "focalY": 42,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 42
+        },
+        "game": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-02",
+        "acceptedAnswers": [
+          "7년 전쟁 이후 과세 강화"
+        ],
+        "distractorEventIds": [
+          "US-03",
+          "US-04",
+          "US-07"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "영국은 전쟁 비용을 충당하려고 식민지에 새로운 세금을 부과했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-02",
+        "imageEventId": "US-02",
+        "titleEventId": "US-02",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-02-7년 전쟁과 식민지 과세 강화.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-03",
+      "order": 3,
+      "title": "인지세법 제정",
+      "year": "1765",
+      "dateLabel": "1765년",
+      "image": "content/us-revolution/images/US-03.png",
+      "shortDescription": "영국은 문서와 신문 등에 세금을 매기는 인지세법을 제정했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "인지세법은 식민지 내부 거래에 직접 세금을 부과한 법으로 광범위한 저항을 불러왔습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "식민지의 조직적 불매 운동과 항의는 공동 대응 의식을 키웠습니다."
+        }
+      ],
+      "previousEvent": "US-02",
+      "nextEvent": "US-04",
+      "focalX": 50,
+      "focalY": 43,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 43
+        },
+        "game": {
+          "x": 50,
+          "y": 43
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-03",
+        "acceptedAnswers": [
+          "인지세법 제정"
+        ],
+        "distractorEventIds": [
+          "US-04",
+          "US-05",
+          "US-08"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "영국은 문서와 신문 등에 세금을 매기는 인지세법을 제정했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-03",
+        "imageEventId": "US-03",
+        "titleEventId": "US-03",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-03-인지세법 제정.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-04",
+      "order": 4,
+      "title": "보스턴 차 사건",
+      "year": "1773",
+      "dateLabel": "1773년",
+      "image": "content/us-revolution/images/US-04.png",
+      "shortDescription": "식민지인들이 차 상자를 바다에 던지며 영국의 차세 정책에 항의했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "보스턴의 저항 세력은 영국 동인도 회사의 차를 실은 배에 올라 차 상자를 바다에 던졌습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "영국의 강경한 보복 조치는 식민지 사이의 연대를 더욱 강화했습니다."
+        }
+      ],
+      "previousEvent": "US-03",
+      "nextEvent": "US-05",
+      "focalX": 50,
+      "focalY": 38,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 38
+        },
+        "game": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-04",
+        "acceptedAnswers": [
+          "보스턴 차 사건"
+        ],
+        "distractorEventIds": [
+          "US-05",
+          "US-06",
+          "US-09"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "식민지인들이 차 상자를 바다에 던지며 영국의 차세 정책에 항의했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-04",
+        "imageEventId": "US-04",
+        "titleEventId": "US-04",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-04-보스턴 차 사건.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-05",
+      "order": 5,
+      "title": "제1차 대륙회의 개최",
+      "year": "1774",
+      "dateLabel": "1774년",
+      "image": "content/us-revolution/images/US-05.png",
+      "shortDescription": "13개 식민지 대표들이 모여 영국의 강압 조치에 공동 대응했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "조지아를 제외한 식민지 대표들이 필라델피아에 모여 권리 회복과 영국 상품 불매를 논의했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "각 식민지가 함께 행동한 경험은 독립 혁명의 정치적 토대를 마련했습니다."
+        }
+      ],
+      "previousEvent": "US-04",
+      "nextEvent": "US-06",
+      "focalX": 50,
+      "focalY": 36,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 36
+        },
+        "game": {
+          "x": 50,
+          "y": 36
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-05",
+        "acceptedAnswers": [
+          "제1차 대륙회의 개최"
+        ],
+        "distractorEventIds": [
+          "US-06",
+          "US-07",
+          "US-10"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "13개 식민지 대표들이 모여 영국의 강압 조치에 공동 대응했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-05",
+        "imageEventId": "US-05",
+        "titleEventId": "US-05",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-05-제1차 대륙회의 개최.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-06",
+      "order": 6,
+      "title": "렉싱턴·콩코드 전투",
+      "year": "1775",
+      "dateLabel": "1775년",
+      "image": "content/us-revolution/images/US-06.png",
+      "shortDescription": "영국군과 식민지 민병대가 충돌하면서 독립 전쟁이 시작되었습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "무기를 압수하려던 영국군과 이를 막으려던 민병대가 렉싱턴과 콩코드에서 교전했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "무력 충돌이 시작되면서 영국과 식민지의 갈등은 전쟁으로 바뀌었습니다."
+        }
+      ],
+      "previousEvent": "US-05",
+      "nextEvent": "US-07",
+      "focalX": 50,
+      "focalY": 46,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 46
+        },
+        "game": {
+          "x": 50,
+          "y": 46
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-06",
+        "acceptedAnswers": [
+          "렉싱턴·콩코드 전투"
+        ],
+        "distractorEventIds": [
+          "US-07",
+          "US-08",
+          "US-11"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "영국군과 식민지 민병대가 충돌하면서 독립 전쟁이 시작되었습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-06",
+        "imageEventId": "US-06",
+        "titleEventId": "US-06",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-06-렉싱턴·콩코드 전투.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-07",
+      "order": 7,
+      "title": "제2차 대륙회의와 대륙군 창설",
+      "year": "1775",
+      "dateLabel": "1775년",
+      "image": "content/us-revolution/images/US-07.png",
+      "shortDescription": "식민지 대표들은 대륙군을 조직하고 워싱턴을 총사령관으로 임명했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "제2차 대륙회의는 전쟁을 지휘할 공동 군대를 만들고 조지 워싱턴에게 지휘를 맡겼습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "식민지들은 공동 정부와 군대를 갖추며 독립 국가로 나아가기 시작했습니다."
+        }
+      ],
+      "previousEvent": "US-06",
+      "nextEvent": "US-08",
+      "focalX": 50,
+      "focalY": 34,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 34
+        },
+        "game": {
+          "x": 50,
+          "y": 34
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-07",
+        "acceptedAnswers": [
+          "제2차 대륙회의와 대륙군 창설"
+        ],
+        "distractorEventIds": [
+          "US-08",
+          "US-09",
+          "US-12"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "식민지 대표들은 대륙군을 조직하고 워싱턴을 총사령관으로 임명했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-07",
+        "imageEventId": "US-07",
+        "titleEventId": "US-07",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-07-제2차 대륙회의와 대륙군 창설.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-08",
+      "order": 8,
+      "title": "독립선언 발표",
+      "year": "1776",
+      "dateLabel": "1776년 7월 4일",
+      "image": "content/us-revolution/images/US-08.png",
+      "shortDescription": "대륙회의는 식민지의 독립과 천부 인권의 원칙을 선언했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "독립선언은 모든 인간의 평등과 생명·자유·행복 추구의 권리를 내세우며 영국과의 결별을 밝혔습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "독립 전쟁의 목적을 분명히 하고 이후 여러 나라의 시민 혁명에 영향을 주었습니다."
+        }
+      ],
+      "previousEvent": "US-07",
+      "nextEvent": "US-09",
+      "focalX": 50,
+      "focalY": 34,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 34
+        },
+        "game": {
+          "x": 50,
+          "y": 34
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-08",
+        "acceptedAnswers": [
+          "독립선언 발표"
+        ],
+        "distractorEventIds": [
+          "US-09",
+          "US-10",
+          "US-01"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "대륙회의는 식민지의 독립과 천부 인권의 원칙을 선언했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-08",
+        "imageEventId": "US-08",
+        "titleEventId": "US-08",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-08-독립선언 발표.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-09",
+      "order": 9,
+      "title": "새러토가 승리와 프랑스 참전",
+      "year": "1777–1778",
+      "dateLabel": "1777~1778년",
+      "image": "content/us-revolution/images/US-09.png",
+      "shortDescription": "새러토가 승리 뒤 프랑스가 미국과 동맹을 맺고 전쟁에 참여했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "미군의 새러토가 승리는 독립 가능성을 보여 주었고 프랑스는 1778년 미국과 동맹을 체결했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "프랑스의 군대·함대·자금 지원은 독립 전쟁의 흐름을 미국에 유리하게 바꾸었습니다."
+        }
+      ],
+      "previousEvent": "US-08",
+      "nextEvent": "US-10",
+      "focalX": 50,
+      "focalY": 38,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 38
+        },
+        "game": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-09",
+        "acceptedAnswers": [
+          "새러토가 승리와 프랑스 참전"
+        ],
+        "distractorEventIds": [
+          "US-10",
+          "US-11",
+          "US-02"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "새러토가 승리 뒤 프랑스가 미국과 동맹을 맺고 전쟁에 참여했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-09",
+        "imageEventId": "US-09",
+        "titleEventId": "US-09",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-09-새러토가 전투와 프랑스의 참전.png",
+      "datePrecision": "range"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-10",
+      "order": 10,
+      "title": "요크타운 전투",
+      "year": "1781",
+      "dateLabel": "1781년",
+      "image": "content/us-revolution/images/US-10.png",
+      "shortDescription": "미국·프랑스 연합군이 요크타운에서 영국군의 항복을 받아냈습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "워싱턴의 미군과 프랑스군·프랑스 함대가 영국군을 포위해 콘월리스의 항복을 이끌었습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "요크타운의 승리는 주요 전투를 사실상 끝내고 평화 협상을 가능하게 했습니다."
+        }
+      ],
+      "previousEvent": "US-09",
+      "nextEvent": "US-11",
+      "focalX": 50,
+      "focalY": 42,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 42
+        },
+        "game": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-10",
+        "acceptedAnswers": [
+          "요크타운 전투"
+        ],
+        "distractorEventIds": [
+          "US-11",
+          "US-12",
+          "US-03"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "미국·프랑스 연합군이 요크타운에서 영국군의 항복을 받아냈습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-10",
+        "imageEventId": "US-10",
+        "titleEventId": "US-10",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-10-요크타운 전투.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-11",
+      "order": 11,
+      "title": "파리조약과 미국 독립 승인",
+      "year": "1783",
+      "dateLabel": "1783년",
+      "image": "content/us-revolution/images/US-11.png",
+      "shortDescription": "파리조약으로 영국이 미국의 독립을 공식적으로 인정했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "미국과 영국은 파리에서 평화 조약을 맺고 미국의 영토와 독립을 확인했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "전쟁이 국제적으로 마무리되며 미국은 독립 국가로 출발했습니다."
+        }
+      ],
+      "previousEvent": "US-10",
+      "nextEvent": "US-12",
+      "focalX": 50,
+      "focalY": 35,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 35
+        },
+        "game": {
+          "x": 50,
+          "y": 35
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-11",
+        "acceptedAnswers": [
+          "파리조약과 미국 독립 승인"
+        ],
+        "distractorEventIds": [
+          "US-12",
+          "US-01",
+          "US-04"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "파리조약으로 영국이 미국의 독립을 공식적으로 인정했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-11",
+        "imageEventId": "US-11",
+        "titleEventId": "US-11",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1373
+      },
+      "originalFilename": "US-11-파리조약과 미국 독립 승인.png",
+      "datePrecision": "year"
+    },
+    {
+      "unitId": "us-revolution",
+      "eventId": "US-12",
+      "order": 12,
+      "title": "미국 헌법 제정과 연방정부 수립",
+      "year": "1787–1789",
+      "dateLabel": "1787~1789년",
+      "image": "content/us-revolution/images/US-12.png",
+      "shortDescription": "헌법을 제정하고 연방정부를 세워 새로운 국가의 통치 체제를 마련했습니다.",
+      "detailedDescription": [
+        {
+          "heading": "배경과 전개",
+          "text": "헌법 제정 회의는 연방과 주의 권한을 나누고 입법·행정·사법의 권력을 분립했습니다."
+        },
+        {
+          "heading": "역사적 의미",
+          "text": "헌법 발효와 워싱턴 정부 출범으로 미국의 연방 공화정 체제가 자리 잡았습니다."
+        }
+      ],
+      "previousEvent": "US-11",
+      "nextEvent": null,
+      "focalX": 50,
+      "focalY": 35,
+      "focalPoints": {
+        "collection": {
+          "x": 50,
+          "y": 35
+        },
+        "game": {
+          "x": 50,
+          "y": 35
+        }
+      },
+      "intermediate": {
+        "enabled": true,
+        "question": "그림에 해당하는 역사 사건은 무엇인가요?",
+        "answerEventId": "US-12",
+        "acceptedAnswers": [
+          "미국 헌법 제정과 연방정부 수립"
+        ],
+        "distractorEventIds": [
+          "US-01",
+          "US-02",
+          "US-05"
+        ],
+        "normalization": {
+          "unicode": "NFKC",
+          "ignoreWhitespace": true,
+          "ignorePunctuation": true
+        },
+        "hint": "헌법을 제정하고 연방정부를 세워 새로운 국가의 통치 체제를 마련했습니다."
+      },
+      "chronology": {
+        "orderRef": "order"
+      },
+      "decoy": {
+        "eligibleAsForeignDecoy": true,
+        "excludedAgainstUnitIds": []
+      },
+      "matching": {
+        "pairId": "US-12",
+        "imageEventId": "US-12",
+        "titleEventId": "US-12",
+        "enabled": true
+      },
+      "sourceIds": [
+        "us-founders"
+      ],
+      "imageReview": {
+        "status": "checked",
+        "questionSafe": true,
+        "note": "파일명과 그림의 중심 장면이 대응합니다."
+      },
+      "imageDimensions": {
+        "width": 1145,
+        "height": 1374
+      },
+      "originalFilename": "US-12-미국 헌법 제정과 연방정부 수립.png",
+      "datePrecision": "range"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "eventId": "US-01",
+    "title": "북아메리카 13개 식민지 성장",
+    "canonicalPath": "content/us-revolution/images/US-01.png",
+    "originalFilename": "US-01-영국의 북아메리카 13개 식민지 건설.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2900284,
+    "sha256": "ebbc0795afa87ec54fc6cca6e621136ae148d09bd4a49fd020f9e7f7cb0a784a"
+  },
+  {
+    "eventId": "US-02",
+    "title": "7년 전쟁 이후 과세 강화",
+    "canonicalPath": "content/us-revolution/images/US-02.png",
+    "originalFilename": "US-02-7년 전쟁과 식민지 과세 강화.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2768034,
+    "sha256": "9ca38dcb1456d5e4c7b311a51afd568e4898bb91c8fb39d887b5668929277398"
+  },
+  {
+    "eventId": "US-03",
+    "title": "인지세법 제정",
+    "canonicalPath": "content/us-revolution/images/US-03.png",
+    "originalFilename": "US-03-인지세법 제정.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2618150,
+    "sha256": "f325afced0ba043c92e8f6eb1134227228c9e14256d4dec1222bea54a9cd84a5"
+  },
+  {
+    "eventId": "US-04",
+    "title": "보스턴 차 사건",
+    "canonicalPath": "content/us-revolution/images/US-04.png",
+    "originalFilename": "US-04-보스턴 차 사건.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2574671,
+    "sha256": "94f5ec0815aa127089a5cf64551599ec7c967b9cd5e6e81f3bd43ff91f92fae7"
+  },
+  {
+    "eventId": "US-05",
+    "title": "제1차 대륙회의 개최",
+    "canonicalPath": "content/us-revolution/images/US-05.png",
+    "originalFilename": "US-05-제1차 대륙회의 개최.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2339895,
+    "sha256": "eb990f6f4530c495b23ddc9f1153b29fa06f40d2e523e4713ea70f364becb74b"
+  },
+  {
+    "eventId": "US-06",
+    "title": "렉싱턴·콩코드 전투",
+    "canonicalPath": "content/us-revolution/images/US-06.png",
+    "originalFilename": "US-06-렉싱턴·콩코드 전투.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2689644,
+    "sha256": "c0bd7038a8f0b7f3859602453052baeda8c395eab1f2b3a63673157827f69f2e"
+  },
+  {
+    "eventId": "US-07",
+    "title": "제2차 대륙회의와 대륙군 창설",
+    "canonicalPath": "content/us-revolution/images/US-07.png",
+    "originalFilename": "US-07-제2차 대륙회의와 대륙군 창설.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2168396,
+    "sha256": "82df2918428ed68580ab0fb5d655f2a07598c7f309dcb692ba3192c3018844a3"
+  },
+  {
+    "eventId": "US-08",
+    "title": "독립선언 발표",
+    "canonicalPath": "content/us-revolution/images/US-08.png",
+    "originalFilename": "US-08-독립선언 발표.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2112692,
+    "sha256": "d04016fbfe3f0375692e6ff0d33ccb5f624e16470f955e846d21bae2316d19d6"
+  },
+  {
+    "eventId": "US-09",
+    "title": "새러토가 승리와 프랑스 참전",
+    "canonicalPath": "content/us-revolution/images/US-09.png",
+    "originalFilename": "US-09-새러토가 전투와 프랑스의 참전.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2370914,
+    "sha256": "240ae47a775792a5ccadf8022d1155edfddad2d300e6caa244c9ff72a1217484"
+  },
+  {
+    "eventId": "US-10",
+    "title": "요크타운 전투",
+    "canonicalPath": "content/us-revolution/images/US-10.png",
+    "originalFilename": "US-10-요크타운 전투.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2463199,
+    "sha256": "1c11ae02cae3837e7b1a850a0c078ef9eacbc90189fad4edfa10c0cea2d44ddd"
+  },
+  {
+    "eventId": "US-11",
+    "title": "파리조약과 미국 독립 승인",
+    "canonicalPath": "content/us-revolution/images/US-11.png",
+    "originalFilename": "US-11-파리조약과 미국 독립 승인.png",
+    "width": 1145,
+    "height": 1373,
+    "bytes": 2454349,
+    "sha256": "a23588011df7860126e81119afb5b60f655a9df008a124bcaff255cab5d8c0f0"
+  },
+  {
+    "eventId": "US-12",
+    "title": "미국 헌법 제정과 연방정부 수립",
+    "canonicalPath": "content/us-revolution/images/US-12.png",
+    "originalFilename": "US-12-미국 헌법 제정과 연방정부 수립.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2107791,
+    "sha256": "5bb79f99597bfcb32a18cdb23539407ccf8f610c59d491966a5d3d45859470b9"
+  }
+]
