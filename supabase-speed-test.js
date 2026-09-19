@@ -10,7 +10,7 @@
   projectUrl.value = localStorage.getItem("historySupabaseProjectUrl") || "";
 
   function normalizedProjectUrl() {
-    const value = projectUrl.value.trim().replace(/\/+$/, "");
+    const value = projectUrl.value.trim().replace(/\/+$/, "").replace(/\/functions\/v1\/history-api$/i, "");
     if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value)) {
       throw new Error("Supabase 프로젝트 URL 형식을 확인해 주세요.");
     }
