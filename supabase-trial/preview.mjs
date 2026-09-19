@@ -8,6 +8,7 @@ function render(page='home'){
   const s=page==='memory'?createMemory():null;
   if(s){s.phase='memorize';s.visibleUntil=Date.now()+5000;}
   app.innerHTML=(page==='connections'?connectionsView(createConnections()):page==='memory'?memoryView(s):homeView(state))+bottomNav(page);
+  document.documentElement.scrollTop=0;document.body.scrollTop=0;
 }
 app.addEventListener('click',e=>{
   const action=e.target.closest('[data-action]')?.dataset.action;if(!action)return;

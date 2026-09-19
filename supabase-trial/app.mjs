@@ -21,6 +21,7 @@ function cardMarkup(card,quantity){
   return `<article class="card ${card.effect==='shiny'?'shiny':''}">${image?`<img src="${esc(image)}" alt="${esc(card.title)}" loading="lazy">`:''}<h3>${esc(card.title)}</h3><p>${esc(names[card.rarity]||card.rarity)}${card.effect==='shiny'?' · ✨ 이로치':''}${quantity?` · ${quantity}장`:''}</p></article>`;
 }
 function render(){
+  const pageChanged=document.body.dataset.page!==page;
   document.body.dataset.page=page;
   if(page==='loading'){app.innerHTML='<section class="panel"><h1>시험판을 준비하고 있습니다.</h1></section>';return;}
   if(page==='login'){
@@ -60,6 +61,7 @@ function render(){
     content+=`<section class="panel"><h1>${revealed?'카드를 획득했습니다!':'카드를 공개해 보세요'}</h1><p>카드팩 차감과 카드 저장은 이미 완료되었습니다.</p><div class="reveal">${revealed?cardMarkup(opening.card):'<button class="sealed" data-action="reveal" style="width:100%">✦<br>카드 공개</button>'}</div><button class="secondary" data-action="vault">도감으로</button></section>`;
   }
   app.innerHTML=nav+content+bottomNav(page,busy)+`<details class="panel timing-panel"><summary>이 기기의 서버 응답 시간</summary><table><thead><tr><th>동작</th><th>시간</th></tr></thead><tbody>${timings.slice(-12).map(t=>`<tr><td>${esc(t.action)}</td><td>${seconds(t.elapsed)}</td></tr>`).join('')}</tbody></table><small>문제 정답·오답 확인과 다음 문제 이동은 서버 요청 0회입니다.</small></details>`;
+  if(pageChanged){document.documentElement.scrollTop=0;document.body.scrollTop=0;}
 }
 function stopPractice(){clearInterval(practiceTimer);practiceTimer=null;practice=null;}
 function startPracticeTimer(){
