@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Supabase 연결 속도 시험</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; background:#111b2b; color:#f6ead0; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; }
+    main { width:min(760px,100%); border:1px solid #a78548; border-radius:20px; padding:28px; background:#1c2c41; box-shadow:0 18px 60px #0008; }
+    h1 { margin:0 0 8px; font-family:serif; }
+    p { line-height:1.55; color:#d8cfbd; }
+    label { display:block; margin:16px 0 6px; font-weight:700; }
+    input { width:100%; padding:13px; border:1px solid #b99a60; border-radius:9px; font-size:16px; background:#f4e7ca; color:#142033; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    button { margin-top:18px; padding:13px 18px; border:1px solid #c8a95f; border-radius:10px; background:#963d49; color:#fff5d8; font-size:16px; font-weight:800; cursor:pointer; }
+    button:disabled { opacity:.55; cursor:wait; }
+    #summary { margin-top:20px; padding:14px; border-radius:10px; background:#101b2b; min-height:52px; }
+    table { width:100%; border-collapse:collapse; margin-top:14px; }
+    th,td { padding:10px; border-bottom:1px solid #435269; text-align:left; }
+    .good { color:#85e89d; } .slow { color:#ffd479; } .bad { color:#ff8d8d; }
+    small { color:#aeb8c7; }
+    @media (max-width:600px) { .grid { grid-template-columns:1fr 1fr; } main { padding:20px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Supabase 연결 속도 시험</h1>
+    <p>기존 Google Apps Script 게임에는 영향을 주지 않습니다. 가상 학생 홍길동으로 새 서버의 로그인·조회·로그아웃 시간만 측정합니다.</p>
+
+    <label for="projectUrl">Supabase 프로젝트 URL</label>
+    <input id="projectUrl" inputmode="url" placeholder="https://프로젝트참조.supabase.co" autocomplete="off">
+
+    <div class="grid">
+      <div><label for="grade">학년</label><input id="grade" type="number" value="2"></div>
+      <div><label for="classNo">반</label><input id="classNo" type="number" value="4"></div>
+      <div><label for="number">번호</label><input id="number" type="number" value="4"></div>
+    </div>
+    <label for="code">5자리 학생 코드</label>
+    <input id="code" inputmode="numeric" maxlength="5" value="12345">
+
+    <button id="run" type="button">4단계 속도 시험 시작</button>
+    <div id="summary" aria-live="polite">아직 시험하지 않았습니다.</div>
+    <table hidden id="results">
+      <thead><tr><th>단계</th><th>시간</th><th>결과</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p><small>프로젝트 URL만 이 브라우저에 저장됩니다. 데이터베이스 비밀번호나 service_role 키는 절대 입력하지 않습니다.</small></p>
+  </main>
+  <script src="supabase-speed-test.js"></script>
+</body>
+</html>
