@@ -1,0 +1,3 @@
+/* A consistent opaque matte for uploaded paintings with alpha.
+   This changes neither PNG bytes nor the collection frame/effect geometry. */
+.history-card__picture,.history-game-card__picture{background-color:#211a16}

@@ -1,0 +1,25 @@
+/* Adapted from the supplied effects kit. Mode strength is never overwritten by keyframes. */
+.history-card--list{--fx-strength:.25;--fx-spread:9%;--foil-strength:.13}
+.history-card--detail{--fx-strength:.66;--fx-spread:20%;--foil-strength:.25}
+.history-card--reveal{--fx-strength:1;--fx-spread:30%;--foil-strength:.36}
+.history-card__fx{position:absolute;inset:calc(-1 * var(--fx-y,var(--fx-spread))) calc(-1 * var(--fx-x,var(--fx-spread)));z-index:0;pointer-events:none;opacity:var(--fx-strength);color:#ffd168;mask-image:radial-gradient(ellipse closest-side,#000 76%,transparent 100%)}
+.history-card__fx::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 4deg at 50% 48%,transparent 0 4deg,#ffe98ab0 4.6deg,transparent 6deg 15deg,#ffb32c80 15.8deg,transparent 17deg 28deg);mask-image:radial-gradient(ellipse at 50% 50%,transparent 20%,#000 40%,#0009 54%,transparent 72%);filter:blur(.65px);animation:hc-rays 7s ease-in-out infinite}
+.history-card__fx::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse,#ffd77966 24%,#ffbd2040 44%,transparent 70%);animation:hc-breathe 5s ease-in-out infinite}
+.history-card[data-rarity=myth] .history-card__fx::before{background:repeating-conic-gradient(from 11deg at 50% 48%,transparent 0 5deg,#68f6ffc0 5.7deg,transparent 7deg 15deg,#ee75ffba 15.7deg,transparent 17deg 25deg,#ffe278b0 25.7deg,transparent 27deg 38deg);animation-duration:8s}
+.history-card[data-rarity=myth] .history-card__fx::after{background:radial-gradient(ellipse at 30% 45%,#80eaff50 14%,transparent 60%),radial-gradient(ellipse at 70% 58%,#d16aff66 16%,#ffcf5925 40%,transparent 72%)}
+.history-card__fx i{position:absolute;width:1.1%;aspect-ratio:1;opacity:0;background:currentColor;clip-path:polygon(50% 0,65% 36%,100% 50%,65% 64%,50% 100%,35% 64%,0 50%,35% 36%);filter:drop-shadow(0 0 4px currentColor);animation:hc-particle 5s ease-in-out infinite;pointer-events:none}
+.history-card__fx i:nth-child(1){left:9%;top:12%;animation-delay:-.4s}.history-card__fx i:nth-child(2){right:7%;top:28%;animation-delay:-1.6s}.history-card__fx i:nth-child(3){left:6%;top:64%;animation-delay:-2.4s}.history-card__fx i:nth-child(4){right:9%;top:76%;animation-delay:-.9s}.history-card__fx i:nth-child(5){left:34%;top:5%;animation-delay:-2.9s}.history-card__fx i:nth-child(6){right:26%;bottom:7%;animation-delay:-1.9s}.history-card__fx i:nth-child(7){right:30%;top:9%;animation-delay:-3.5s}.history-card__fx i:nth-child(8){left:26%;bottom:10%;animation-delay:-4.4s}
+.history-card[data-rarity=myth] .history-card__fx i:nth-child(3n+1){color:#72f5ff}.history-card[data-rarity=myth] .history-card__fx i:nth-child(3n+2){color:#ed76ff}.history-card[data-rarity=myth] .history-card__fx i:nth-child(3n){color:#ffe885}
+.history-card__foil{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:var(--foil-strength);mix-blend-mode:screen;clip-path:polygon(3% 3.4%,44% 3.4%,50% 0,56% 3.4%,97% 3.4%,97% 95.2%,55% 95.2%,50% 97%,45% 95.2%,3% 95.2%);background:linear-gradient(113deg,transparent 14%,#68f9ff00 26%,#68f9ffcd 38%,#ec6fffd9 44%,#fff29fb5 49%,#62a9ffaa 55%,transparent 69%),conic-gradient(from 210deg at 35% 48%,#5ff4ff35,#dc69ff45,#ffe47633,#5ff4ff35);background-size:285% 100%,180% 180%;animation:hc-foil 10s ease-in-out infinite}
+.history-card__foil::before{content:"";position:absolute;inset:0;background:linear-gradient(101deg,transparent 35%,#ffffffa0 46%,#f175ff7c 53%,transparent 64%);background-size:320% 100%;animation:hc-glint 12s ease-in-out infinite}
+/* Opaque dark HTML glyphs remain above the film. Legend has no film element. */
+@keyframes hc-rays{0%,100%{opacity:.68}50%{opacity:1}}
+@keyframes hc-breathe{50%{opacity:.62}}
+@keyframes hc-foil{0%,10%{background-position:125% 0,30% 50%}70%,100%{background-position:-90% 0,80% 35%}}
+@keyframes hc-glint{0%,18%{background-position:125% 0}78%,100%{background-position:-95% 0}}
+@keyframes hc-particle{0%,25%,100%{opacity:0;transform:translateY(8px) scale(.3) rotate(0)}45%{opacity:.95;transform:translateY(-4px) scale(1.25) rotate(45deg)}70%{opacity:0;transform:translateY(-17px) scale(.4) rotate(90deg)}}
+.effects-off .history-card__fx,.effects-off .history-card__foil{display:none}
+.motion-paused .history-card__fx,.motion-paused .history-card__fx::before,.motion-paused .history-card__fx::after,.motion-paused .history-card__fx i,.motion-paused .history-card__foil,.motion-paused .history-card__foil::before{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.history-card__fx,.history-card__fx::before,.history-card__fx::after,.history-card__fx i,.history-card__foil,.history-card__foil::before{animation:none!important}.history-card__fx{opacity:.15}.history-card__fx i{display:none}.history-card__foil{opacity:.1}}
+@media(max-width:1050px) and (min-width:681px){.history-card--detail{--fx-x:14%}}
+@media(max-width:680px){.history-card--detail,.history-card--reveal{--fx-x:12%}}

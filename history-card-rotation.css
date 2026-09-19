@@ -1,0 +1,25 @@
+/* Extension only: original foil, particles, radiance, geometry and PNGs retained. */
+.history-card__fx::before {
+  inset:auto; left:50%; top:50%; height:100%; width:auto; aspect-ratio:1;
+  transform:translate(-50%,-50%); transform-origin:50% 50%;
+  background:repeating-conic-gradient(from 4deg at 50% 50%,transparent 0 4deg,#ffe98ab0 4.6deg,transparent 6deg 15deg,#ffb32c80 15.8deg,transparent 17deg 28deg);
+  mask-image:radial-gradient(circle,transparent 20%,#000 40%,#0009 54%,transparent 72%);
+  animation:hc-spin 22s linear infinite,hc-rays 7s ease-in-out infinite;
+}
+.history-card[data-rarity=myth] .history-card__fx::before {
+  background:repeating-conic-gradient(from 11deg at 50% 50%,transparent 0 5deg,#68f6ffc0 5.7deg,transparent 7deg 15deg,#ee75ffba 15.7deg,transparent 17deg 25deg,#ffe278b0 25.7deg,transparent 27deg 38deg);
+  animation:hc-spin 18s linear infinite,hc-rays 8s ease-in-out infinite;
+}
+.history-card__prism {
+  position:absolute; left:50%; top:50%; height:86%; width:auto; aspect-ratio:1;
+  transform:translate(-50%,-50%); transform-origin:50% 50%; pointer-events:none;
+  background:repeating-conic-gradient(from 31deg,transparent 0 17deg,#b9efff99 17.5deg,transparent 19deg 39deg,#ff91e88a 39.7deg,transparent 41deg 62deg,#ffef9990 62.7deg,transparent 64deg 81deg);
+  mask-image:radial-gradient(circle,transparent 24%,#0008 40%,#000 50%,transparent 70%);
+  filter:blur(.45px); opacity:.63; animation:hc-counterspin 28s linear infinite;
+}
+.history-card[data-rarity=rare] .history-card__back-paper{background:#e5ebf6}
+.history-card[data-rarity=unique] .history-card__back-paper{background:#eee4f3}
+@keyframes hc-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes hc-counterspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.motion-paused .history-card__prism{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.history-card__fx::before,.history-card__prism{animation:none!important}.history-card__prism{opacity:.2}}

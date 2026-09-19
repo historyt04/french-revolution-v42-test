@@ -1,0 +1,1 @@
+window.HISTORY_CARD_ASSETS=window.HISTORY_CARD_ASSETS||{};

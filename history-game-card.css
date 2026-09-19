@@ -1,0 +1,16 @@
+/* Compact game-only geometry, separate from collectible card coordinates. */
+.history-game-card{position:relative;display:block;width:100%;aspect-ratio:5/6;container-type:inline-size;isolation:isolate;min-width:0;border:0;padding:0;background:none;color:#25190d;text-align:center;font-family:CardSerif,serif;cursor:pointer;user-select:none;touch-action:manipulation;filter:drop-shadow(0 5px 6px #0005);outline-offset:2px}
+.history-game-card:focus-visible{outline:3px solid #f1d396;border-radius:5px}
+.history-game-card[aria-pressed=true]{outline:3px solid #f1d396;border-radius:5px;filter:drop-shadow(0 0 8px #cba15490)}
+.history-game-card__title{position:absolute;z-index:4;left:14.2%;top:13%;width:71.6%;height:10%;display:flex;align-items:center;justify-content:center;font-size:6.3cqw;line-height:1.23;font-weight:800;word-break:keep-all;overflow-wrap:anywhere;letter-spacing:-.035em;text-shadow:0 1px #fff6}
+.history-game-card__picture{position:absolute;z-index:1;left:8.5%;top:24.2%;width:83%;height:64%;object-fit:cover;border:0;margin:0;padding:0;max-width:none;display:block;pointer-events:none}
+.game-ornament{position:absolute;display:block;left:0;width:100%;overflow:hidden;pointer-events:none;z-index:3}
+.game-ornament img{position:absolute;left:0;display:block;width:100%;height:auto;max-width:none;margin:0;border:0}
+.game-ornament--top{top:0;height:25.2%}.game-ornament--top img{top:0}
+.game-ornament--sides{top:24.2%;height:63.8%;clip-path:polygon(0 0,9% 0,9% 100%,91% 100%,91% 0,100% 0,100% 100%,0 100%)}
+.game-ornament--sides img{top:-30cqw}
+.game-ornament--bottom{top:87.8%;height:12.2%}.game-ornament--bottom img{bottom:0}
+.history-game-card__name{position:absolute;left:13%;top:30%;width:74%;height:49%;display:flex;align-items:center;justify-content:center;font-size:9cqw;line-height:1.5;font-weight:800;word-break:keep-all}
+.history-game-card--title:before{content:"";position:absolute;left:8.5%;top:24.2%;width:83%;height:64%;background:#f2e3c1}
+.history-game-card--title .history-game-card__title{font-size:6cqw}
+.history-game-card--title .history-game-card__title{visibility:hidden}
