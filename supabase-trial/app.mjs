@@ -2,7 +2,7 @@ import {TrialClient} from './client.mjs';
 import {createQuiz,currentQuestion,submitAnswer,nextQuestion,hintFor} from './quiz.mjs?v=2';
 import {homeView,bottomNav,recordsView,connectionsView,memoryView} from './views.mjs?v=3';
 import {createConnections,checkConnections,nextConnections,createMemory,beginMemory,tickMemory,memoryHint,placeMemory,checkMemory} from './practice.mjs?v=3';
-import {cardMarkup,packView,collectionView,celebrationView,tiers} from './collection.mjs?v=3';
+import {cardMarkup,packView,collectionView,celebrationView,tiers,effectOf,effectNames} from './collection.mjs?v=4';
 
 const app=document.querySelector('#app'),notice=document.querySelector('#notice');
 const client=new TrialClient();
@@ -59,7 +59,8 @@ function render(){
     }else content+=packView(state,busy||!!pending);
   }else if(page==='opening'){
     const cards=opening.cards||[opening.card];
-    content+=`<section class="panel"><h1>${revealed?'카드를 획득했습니다!':'카드를 공개해 보세요'}</h1><p>카드팩 차감과 카드 저장은 이미 완료되었습니다.</p><div class="${cards.length>1?'multi-reveal':'reveal'}">${revealed?cards.map(c=>cardMarkup(c,1,'reveal')).join(''):'<button class="sealed" data-action="reveal" style="width:100%">✦<br>카드 공개</button>'}</div><button class="secondary" data-action="vault">도감으로</button><button class="secondary" data-action="inventory">카드팩 보관함</button></section>`;
+    const glows=cards.filter(c=>effectOf(c)!=='normal');
+    content+=`<section class="panel"><h1>${revealed?(glows.length?'숨겨진 광휘 발견!':'카드를 획득했습니다!'):'카드를 공개해 보세요'}</h1>${revealed&&glows.length?`<p class="glow-discovery">${[...new Set(glows.map(c=>effectNames[effectOf(c)]))].map(esc).join(' · ')}</p>`:''}<p>카드팩 차감과 카드 저장은 이미 완료되었습니다.</p><div class="${cards.length>1?'multi-reveal':'reveal'}">${revealed?cards.map(c=>cardMarkup(c,1,'reveal')).join(''):'<button class="sealed" data-action="reveal" style="width:100%">✦<br>카드 공개</button>'}</div><button class="secondary" data-action="vault">도감으로</button><button class="secondary" data-action="inventory">카드팩 보관함</button></section>`;
     if(revealed)content+=celebrationView(state,celebration);
   }
   app.innerHTML=nav+content+bottomNav(page,busy)+`<details class="panel timing-panel"><summary>이 기기의 서버 응답 시간</summary><table><thead><tr><th>동작</th><th>시간</th></tr></thead><tbody>${timings.slice(-12).map(t=>`<tr><td>${esc(t.action)}</td><td>${seconds(t.elapsed)}</td></tr>`).join('')}</tbody></table><small>문제 정답·오답 확인과 다음 문제 이동은 서버 요청 0회입니다.</small></details>`;
