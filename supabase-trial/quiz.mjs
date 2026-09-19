@@ -1,6 +1,13 @@
 // Pure local state machine. Server replays the same ordered transcript at completion.
 export const normalizeAnswer=value=>String(value).normalize('NFKC').replace(/[\s·ㆍ.,!?()（）-]/gu,'').toLowerCase();
-export const hintFor=label=>{const chars=[...label.replace(/\s/g,'')];return chars[0]+'○'.repeat(Math.max(0,chars.length-1));};
+// round=0: no hint. Each retry reveals more; the fourth retry is guided copying.
+// Proportional steps also work for long event names, not only three-letter answers.
+export function hintFor(label,round=1){
+  const chars=[...String(label).replace(/\s/g,'')];
+  if(round<=0||!chars.length)return '';
+  const shown=round>=4?chars.length:round===1?1:Math.min(chars.length,Math.max(round,Math.ceil(chars.length*(round===2?.5:.75))));
+  return chars.slice(0,shown).join('')+'○'.repeat(chars.length-shown);
+}
 export function createQuiz(questions){
   return {questions,original:questions.map(q=>q.id),sequence:questions.map(q=>q.id),position:0,
     tries:0,round:0,passed:[],submissions:[],feedback:null,advance:false,done:false};
@@ -13,7 +20,7 @@ export function submitAnswer(s,value){
   const ok=q.answers.some(a=>normalizeAnswer(a)===normalizeAnswer(answer));
   s.submissions.push({questionId:q.id,answer});s.tries++;
   if(ok)s.passed.push(q.id);
-  s.feedback={ok,text:ok?'정답입니다.':s.tries===2?`정답: ${q.label} — 마지막에 다시 풀어요.`:'다시 생각해 보세요.'};
+  s.feedback={ok,text:ok?'정답입니다.':s.tries===2?'잠시 뒤 힌트와 함께 다시 풀어요. 아직 정답은 공개하지 않습니다.':'다시 생각해 보세요.'};
   s.advance=ok||s.tries===2;
   return true;
 }

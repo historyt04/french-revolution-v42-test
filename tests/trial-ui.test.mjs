@@ -53,7 +53,7 @@ test('real app DOM → login → retry quiz → lost completion response → rel
     form.dispatchEvent(new ui.w.Event('submit',{bubbles:true,cancelable:true}));
   };
   const count=requests.length;
-  answer('틀린 답');answer('틀린 답');assert.match(ui.text(),new RegExp(questions[0].label));
+  answer('틀린 답');answer('틀린 답');assert.match(ui.text(),/아직 정답은 공개하지/);
   ui.click('next');assert.equal(ui.w.document.querySelector('.feedback').textContent,'띄어쓰기는 달라도 됩니다.');
   for(const q of questions.slice(1)){answer(q.answers[0]);ui.click('next');}
   assert.equal(requests.length,count,'answering and navigation use no network');
@@ -68,6 +68,34 @@ test('real app DOM → login → retry quiz → lost completion response → rel
   ui.click('reveal');assert.match(ui.text(),/카드를 획득했습니다/);
   assert.equal((await db.query('select count(*)::int n from trial_openings')).rows[0].n,1);
   ui.click('vault');assert.ok(ui.w.document.querySelector('.card img'));
+  ui.click('home');
+  assert.ok(ui.w.document.querySelector('.revolution-hero'));
+  assert.equal(ui.w.document.querySelectorAll('.chapter-tile').length,4);
+  const beforePractice=requests.length;
+  ui.click('connections');
+  assert.equal(ui.w.document.querySelectorAll('.connection-row').length,3);
+  for(let round=0;round<4;round++){
+    for(const select of ui.w.document.querySelectorAll('.connection-choice select')){
+      select.value=select.dataset.event;
+      select.dispatchEvent(new ui.w.Event('change',{bubbles:true}));
+    }
+    ui.click('connection-check');ui.click('connection-next');
+  }
+  assert.match(ui.text(),/12개 사건의 원인과 결과를 모두 연결/);
+  ui.click('home');ui.click('memory');ui.click('memory-begin');
+  assert.equal(ui.w.document.querySelectorAll('.memory-card').length,12);
+  // Simulate wall-clock expiry without blocking the test on the visual timer.
+  const realNow=ui.w.Date.now;ui.w.Date.now=()=>realNow()+6000;
+  await until(()=>!!ui.w.document.querySelector('.card-tray'));
+  const {events}=await import('../supabase-trial/practice.mjs');
+  for(const event of events){
+    ui.w.document.querySelector(`[data-action="memory-select"][data-event="${event.id}"]`).click();
+    ui.w.document.querySelector(`[data-action="memory-place"][data-zone="${event.zone}"]`).click();
+  }
+  ui.click('memory-check');assert.match(ui.text(),/12개 사건을 모두 올바른/);
+  assert.equal(requests.length,beforePractice,'practice navigation never calls the server');
+  assert.equal((await db.query('select count(*)::int n from trial_openings')).rows[0].n,1);
+  ui.click('practice-exit');
   ui.click('logout');assert.match(ui.text(),/5자리 학생 코드/);
   assert.equal(ui.w.sessionStorage.getItem('history-supabase-student-trial-1'),null);
 });

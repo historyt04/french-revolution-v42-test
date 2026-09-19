@@ -61,7 +61,7 @@ test('isolated PostgreSQL trial lifecycle and adversarial inputs',async t=>{
     const r=(await api(db,'game.start',{gameId:'fr-beginner',requestId:id()},token)).data;
     const s=createQuiz(r.questions);const first=currentQuestion(s);
     submitAnswer(s,'틀림');assert.equal(s.advance,false);submitAnswer(s,'틀림');
-    assert.match(s.feedback.text,/정답:/);assert.equal(currentQuestion(s).id,first.id);
+    assert.match(s.feedback.text,/아직 정답은 공개하지/);assert.equal(currentQuestion(s).id,first.id);
     nextQuestion(s);assert.equal(s.feedback,null);
     while(s.round===0){submitAnswer(s,currentQuestion(s).answers[0]);nextQuestion(s);}
     assert.equal(s.sequence.length,1);assert.equal(hintFor(currentQuestion(s).label)[0],first.label[0]);
@@ -90,6 +90,13 @@ test('isolated PostgreSQL trial lifecycle and adversarial inputs',async t=>{
 test('answer normalization and double-submit guard',()=>{
   assert.equal(normalizeAnswer(' 루이 １６세 '),'루이16세');
   assert.equal(hintFor('삼부회'),'삼○○');
+  assert.equal(hintFor('삼부회',0),'');
+  assert.equal(hintFor('삼부회',2),'삼부○');
+  assert.equal(hintFor('삼부회',3),'삼부회');
+  assert.equal(hintFor('테니스 코트의 서약',1),'테○○○○○○○');
+  assert.equal(hintFor('테니스 코트의 서약',2),'테니스코○○○○');
+  assert.equal(hintFor('테니스 코트의 서약',3),'테니스코트의○○');
+  assert.equal(hintFor('테니스 코트의 서약',4),'테니스코트의서약');
   const q=createQuiz([{id:'q',prompt:'?',answers:['삼부회'],label:'삼부회'}]);
   submitAnswer(q,'삼 부회');assert.equal(submitAnswer(q,'삼부회'),false);
   assert.equal(q.submissions.length,1);nextQuestion(q);assert.equal(q.done,true);
