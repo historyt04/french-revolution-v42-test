@@ -1,8 +1,8 @@
-.shiny25-overlay{position:absolute;z-index:4;inset:18.2% 7.6% 29.2%;overflow:hidden;pointer-events:none;border-radius:2%;mix-blend-mode:screen;opacity:1}
+.shiny25-overlay{position:absolute;z-index:4;inset:18.2% 7.6% 29.2%;overflow:hidden;pointer-events:none;border-radius:2%;opacity:1}
 .shinycorner25{position:absolute;top:9px;right:6px;z-index:8;pointer-events:none;background:#302348ed;color:#ffe6a4;border:1px solid #d2ac61;border-radius:12px;padding:6px 9px;font-size:14px;font-weight:800;box-shadow:0 2px 7px #0008}
 .tierbadge25.normal{background:linear-gradient(125deg,#9b6834,#ffe5a0,#bd8c47);color:#302312}.tierbadge25.rare{background:linear-gradient(125deg,#285985,#c0e8ff,#639bc0);color:#112e48}.tierbadge25.unique{background:linear-gradient(125deg,#5d287d,#edceff,#a464c7);color:#351149}.tierbadge25.legend{background:linear-gradient(125deg,#8c2923,#ffe6a5 48%,#efa535 75%,#a63025);color:#4a1a0d}.tierbadge25.myth{background:conic-gradient(from 40deg,#ffdce7,#fef4ba,#c6ffe5,#c2e8ff,#ecd1ff,#fff3da,#ffdce7);color:#30204a;box-shadow:0 0 20px #f2dfff44}.badge-large25{display:inline-block;font-size:23px;padding:13px 24px!important}.tier-message25{animation:message25 .3s 1.8s both}@keyframes message25{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .shiny25-overlay:before,.shiny25-overlay:after{content:"";position:absolute;inset:0;box-sizing:border-box;border-radius:2%;pointer-events:none}
-.shiny25-overlay:before{border:clamp(7px,2.45cqw,17px) solid transparent;background:var(--glow-edge,linear-gradient(135deg,#fff8,#fff2)) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude;box-shadow:inset 0 0 14px var(--glow-color,#fff8),0 0 14px var(--glow-color,#fff8)}
+.shiny25-overlay:before{border:clamp(9px,3cqw,20px) solid transparent;background:var(--glow-edge,linear-gradient(135deg,#fff8,#fff2)) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude;box-shadow:inset 0 0 20px var(--glow-color,#fff8),0 0 18px var(--glow-color,#fff8)}
 .shiny25-overlay:after{opacity:0}
 .effect25-01{--glow-color:#8ddcff;--glow-edge:conic-gradient(from 35deg,#ff74bb,#ffe873,#6effc9,#62c8ff,#bd7dff,#ff74bb)}
 .effect25-01 .shiny25-overlay:before{animation:rainbow25 7s linear infinite;background-size:170% 170%}
@@ -10,7 +10,7 @@
 .effect25-02 .shiny25-overlay:before{border-width:clamp(9px,3cqw,20px);animation:ice25 5.8s ease-in-out infinite}
 .effect25-02 .shiny25-overlay i{border-radius:12%;transform:rotate(45deg);background:linear-gradient(135deg,#f4ffff,#5fcaff 48%,#315ee6);box-shadow:0 0 9px 3px #9ce8ff}
 .effect25-03{--glow-color:#ffc944;--glow-edge:linear-gradient(120deg,#9e5b0b,#ffe99b 16%,#f5a900 28%,#fff4bd 45%,#c6760b 61%,#ffe378 78%,#a65c06)}
-.effect25-03 .shiny25-overlay:before{animation:gold25 4.8s ease-in-out infinite;background-size:220% 100%}
+.effect25-03 .shiny25-overlay:before{border-width:clamp(11px,3.5cqw,23px);animation:gold25 4.8s ease-in-out infinite;background-size:220% 100%}
 .effect25-04{--glow-color:#ff4c25;--glow-edge:linear-gradient(90deg,#7e0800,#ff3d17 13%,#ff9a35 25%,#af1208 38%,#ff5a20 58%,#ffb149 72%,#d21c0d 88%,#770600)}
 .effect25-04 .shiny25-overlay:before{border-width:clamp(9px,2.8cqw,19px);animation:ember25 3.4s ease-in-out infinite}
 .effect25-04 .shiny25-overlay i{background:#ffb04d;box-shadow:0 0 9px 4px #ff3a13}
