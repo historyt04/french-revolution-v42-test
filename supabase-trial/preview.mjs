@@ -24,7 +24,7 @@ function render(page='home'){
   if(s){s.phase='memorize';s.visibleUntil=Date.now()+5000;}
   sample=previewState();
   const celebration=previewMode==='set'?`set:FR-04:${previewTier}`:previewMode==='tier'?`tier:${previewTier}`:null;
-  app.innerHTML=(page==='vault'?'<p class="migration-note">디자인 예시입니다. 아래 카드는 실제 보유 기록이 아닙니다.</p>'+previewTools()+collectionView(sample,previewTier)+celebrationView(sample,celebration):page==='connections'?connectionsView(createConnections()):page==='memory'?memoryView(s):homeView(state))+bottomNav(page);
+  app.innerHTML=(page==='vault'?'<p class="migration-note">디자인 예시입니다. 아래 카드는 실제 보유 기록이 아닙니다.</p>'+previewTools()+collectionView(sample,previewTier)+(celebration?celebrationView(sample,celebration):''):page==='connections'?connectionsView(createConnections()):page==='memory'?memoryView(s):homeView(state))+bottomNav(page);
   window.HistoryCards.mountHistoryCards(app);
   document.documentElement.scrollTop=0;document.body.scrollTop=0;
 }
