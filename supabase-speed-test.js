@@ -1,0 +1,92 @@
+(() => {
+  "use strict";
+
+  const $ = (id) => document.getElementById(id);
+  const projectUrl = $("projectUrl");
+  const runButton = $("run");
+  const summary = $("summary");
+  const table = $("results");
+  const tbody = table.querySelector("tbody");
+  projectUrl.value = localStorage.getItem("historySupabaseProjectUrl") || "";
+
+  function normalizedProjectUrl() {
+    const value = projectUrl.value.trim().replace(/\/+$/, "");
+    if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value)) {
+      throw new Error("Supabase 프로젝트 URL 형식을 확인해 주세요.");
+    }
+    localStorage.setItem("historySupabaseProjectUrl", value);
+    return value;
+  }
+
+  async function call(baseUrl, action, payload, token) {
+    const started = performance.now();
+    const response = await fetch(`${baseUrl}/functions/v1/history-api`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action, payload: payload || {}, token: token || undefined }),
+    });
+    const body = await response.json().catch(() => null);
+    const elapsed = Math.round(performance.now() - started);
+    if (!response.ok || !body?.ok) throw Object.assign(new Error(body?.message || `HTTP ${response.status}`), { elapsed });
+    return { data: body.data, elapsed };
+  }
+
+  function resultClass(ms) {
+    if (ms <= 2000) return "good";
+    if (ms <= 5000) return "slow";
+    return "bad";
+  }
+
+  function addRow(name, elapsed, message) {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${name}</td><td class="${resultClass(elapsed)}">${elapsed.toLocaleString()} ms</td><td>${message}</td>`;
+    tbody.append(row);
+  }
+
+  runButton.addEventListener("click", async () => {
+    runButton.disabled = true;
+    tbody.replaceChildren();
+    table.hidden = false;
+    summary.textContent = "시험 중입니다…";
+    let token = "";
+    const totalStarted = performance.now();
+    try {
+      const baseUrl = normalizedProjectUrl();
+      const health = await call(baseUrl, "health");
+      addRow("서버 깨우기", health.elapsed, "정상");
+
+      const bootstrap = await call(baseUrl, "public.bootstrap");
+      const school = bootstrap.data.schools?.find((item) => item.id === "dongju-middle");
+      addRow("학교 목록", bootstrap.elapsed, school ? school.name : "동주중학교를 찾지 못함");
+      if (!school) throw new Error("동주중학교 초기 자료가 없습니다.");
+
+      const login = await call(baseUrl, "student.login", {
+        schoolId: school.id,
+        schoolYear: 2026,
+        grade: Number($("grade").value),
+        classNo: Number($("classNo").value),
+        number: Number($("number").value),
+        code: $("code").value.trim(),
+        rememberDevice: true,
+        deviceName: "Supabase 속도 시험",
+      });
+      token = login.data.token;
+      addRow("학생 로그인", login.elapsed, `${login.data.student.profile.name} 확인`);
+
+      const state = await call(baseUrl, "student.state", {}, token);
+      addRow("학생 화면 자료", state.elapsed, `게임 ${state.data.games.length}개`);
+
+      const logout = await call(baseUrl, "session.logout", {}, token);
+      addRow("로그아웃", logout.elapsed, "정상");
+      token = "";
+
+      const total = Math.round(performance.now() - totalStarted);
+      summary.innerHTML = `전체 <strong class="${resultClass(total)}">${total.toLocaleString()} ms</strong> — 네 단계 모두 성공했습니다.`;
+    } catch (error) {
+      const elapsed = Number.isFinite(error.elapsed) ? ` (${error.elapsed.toLocaleString()} ms)` : "";
+      summary.innerHTML = `<strong class="bad">실패:</strong> ${String(error.message || error)}${elapsed}`;
+    } finally {
+      runButton.disabled = false;
+    }
+  });
+})();
