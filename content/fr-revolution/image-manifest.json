@@ -1,0 +1,122 @@
+[
+  {
+    "eventId": "FR-01",
+    "title": "삼부회 소집",
+    "canonicalPath": "content/fr-revolution/images/FR-01.png",
+    "originalFilename": "FR-01-삼부회 소집.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 3701227,
+    "sha256": "10b2bd6b16f9f30756626379d8de9a29189582f4ec91f4292a48f34ae0e6861e"
+  },
+  {
+    "eventId": "FR-02",
+    "title": "국민의회 결성",
+    "canonicalPath": "content/fr-revolution/images/FR-02.png",
+    "originalFilename": "FR-02-국민의회 결성.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2295694,
+    "sha256": "45cd085e9e78f823a46610f2e6403d4852b86c907d62e5a1b019cee2a5693b8a"
+  },
+  {
+    "eventId": "FR-03",
+    "title": "테니스 코트의 서약",
+    "canonicalPath": "content/fr-revolution/images/FR-03.png",
+    "originalFilename": "FR-03-테니스 코트의 서약.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2701231,
+    "sha256": "9b5af8ecd281ee17e7f73045e67c961b840046b48c9b1b68c51a14d9922adfcb"
+  },
+  {
+    "eventId": "FR-04",
+    "title": "바스티유 감옥 습격",
+    "canonicalPath": "content/fr-revolution/images/FR-04.png",
+    "originalFilename": "FR-04-바스티유 감옥 습격.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2478830,
+    "sha256": "cfb4f8ff4e854cedb726bf9b807302fe93aa47a3a51aaf6c1f8bb1f7a88470a1"
+  },
+  {
+    "eventId": "FR-05",
+    "title": "인간과 시민의 권리 선언",
+    "canonicalPath": "content/fr-revolution/images/FR-05.png",
+    "originalFilename": "FR-05-인간과 시민의 권리 선언.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2173993,
+    "sha256": "07d825004b529728ef2c4a584e49133bb5bfc83f41645610e9bcb5116b67addf"
+  },
+  {
+    "eventId": "FR-06",
+    "title": "루이 16세의 탈출 실패",
+    "canonicalPath": "content/fr-revolution/images/FR-06.png",
+    "originalFilename": "FR-06-루이 16세의 국외 탈출 실패.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2357012,
+    "sha256": "d1f0e4c62497f8000d9f02a78697b1348c3302da5ae6a69138595256bce0ad15"
+  },
+  {
+    "eventId": "FR-07",
+    "title": "국민공회와 공화정 수립",
+    "canonicalPath": "content/fr-revolution/images/FR-07.png",
+    "originalFilename": "FR-07-국민공회와 공화정 수립.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2099167,
+    "sha256": "d0f9022ec06aca55a394414af6fa53cc582b1df10f76d02d44f9a09c26553453"
+  },
+  {
+    "eventId": "FR-08",
+    "title": "루이 16세 처형",
+    "canonicalPath": "content/fr-revolution/images/FR-08.png",
+    "originalFilename": "FR-08-루이 16세 처형.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2235147,
+    "sha256": "518ba10c39390845e6236a5d4e7d1be8e4ec8e4d7ff83a9f1386b8ee6ff52a22"
+  },
+  {
+    "eventId": "FR-09",
+    "title": "로베스피에르의 공포 정치",
+    "canonicalPath": "content/fr-revolution/images/FR-09.png",
+    "originalFilename": "FR-09-로베스피에르의 공포정치.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2165355,
+    "sha256": "3a2309f91ace1d1ec84fedd2180b0ea20e18ba8ba5beb07f36710d832c5d0331"
+  },
+  {
+    "eventId": "FR-10",
+    "title": "로베스피에르 체포와 처형",
+    "canonicalPath": "content/fr-revolution/images/FR-10.png",
+    "originalFilename": "FR-10-로베스피에르 체포와 처형.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2106225,
+    "sha256": "8db4ad3982af912719d5f1ac39b1f737a829a3116ac50134a51ee7e04308a9da"
+  },
+  {
+    "eventId": "FR-11",
+    "title": "총재정부 수립",
+    "canonicalPath": "content/fr-revolution/images/FR-11.png",
+    "originalFilename": "FR-11-총재정부 수립.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2276176,
+    "sha256": "2c8afd911bcc4c1f60f55ab622011ba9c1e75495e01619c7c08d54c859fd4454"
+  },
+  {
+    "eventId": "FR-12",
+    "title": "나폴레옹의 쿠데타와 집권",
+    "canonicalPath": "content/fr-revolution/images/FR-12.png",
+    "originalFilename": "FR-12-나폴레옹의 쿠테타와 집권.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2299075,
+    "sha256": "709ca31987fa42a03eb62b4a96c57409388731a4c922df936ec750b3975e295d"
+  }
+]
