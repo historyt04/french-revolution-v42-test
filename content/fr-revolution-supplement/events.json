@@ -1,0 +1,32 @@
+{
+  "unitId": "fr-revolution-supplement",
+  "title": "기존 v4.0 확장 사건",
+  "events": [
+    {
+      "eventId": "FR-X05",
+      "order": 1,
+      "title": "봉건적 특권 폐지",
+      "year": "1789",
+      "image": "assets/legacy/fe9d8f7dc3e8b336.png",
+      "shortDescription": "국민의회는 봉건적 특권을 폐지하기로 결의했습니다.",
+      "detailedDescription": "1789년 8월 국민의회는 봉건적 특권 폐지를 결의했습니다. 기존 v4.0 도전 모드와 도감의 사건 번호를 유지한 확장 사건입니다.",
+      "previousEvent": null,
+      "nextEvent": "FR-X08",
+      "focalX": 50,
+      "focalY": 40
+    },
+    {
+      "eventId": "FR-X08",
+      "order": 2,
+      "title": "1791년 헌법 제정·입헌군주제 시행",
+      "year": "1791",
+      "image": "assets/legacy/294f272916d7d085.png",
+      "shortDescription": "1791년 헌법이 제정되어 입헌군주제가 시행되었습니다.",
+      "detailedDescription": "1791년 헌법은 국왕의 권한을 제한하고 입법 의회에 입법권을 맡겼습니다. 기존 v4.0 도전 모드와 도감의 사건 번호를 유지한 확장 사건입니다.",
+      "previousEvent": "FR-X05",
+      "nextEvent": null,
+      "focalX": 50,
+      "focalY": 40
+    }
+  ]
+}
